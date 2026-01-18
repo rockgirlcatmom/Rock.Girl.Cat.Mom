@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rebecca McDonnell</title>
+  <title>Contact Us • Rebecca McDonnell</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,26 +11,22 @@
 
   <style>
     :root{
-      --bg1:#061711;        /* deep forest */
-      --bg2:#0b2a1f;        /* forest */
+      --bg1:#061711;
+      --bg2:#0b2a1f;
       --panel: rgba(255,255,255,.045);
       --panel2: rgba(255,255,255,.03);
 
       --text:#f6f3ee;
       --muted: rgba(246,243,238,.72);
 
-      --pink:#f2b6c6;       /* muted blush */
-      --gold:#d8b15a;       /* champagne gold */
-
-      --line: rgba(216,177,90,.22);
-      --line2: rgba(242,182,198,.22);
+      --pink:#f2b6c6;
+      --gold:#d8b15a;
 
       --shadow: 0 22px 60px rgba(0,0,0,.55);
       --radius: 22px;
     }
 
     *{ box-sizing:border-box; }
-    html, body{ height:100%; }
     body{
       margin:0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -41,24 +37,11 @@
         linear-gradient(135deg, var(--bg2) 0%, var(--bg1) 55%, #04110d 100%);
       letter-spacing:.25px;
       overflow-x:hidden;
+      min-height: 100vh;
+      display:flex;
+      flex-direction:column;
     }
 
-    .pattern{
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: .20;
-      background:
-        linear-gradient(to right, rgba(216,177,90,.08) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(216,177,90,.08) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: radial-gradient(circle at 30% 10%, black 0%, transparent 60%);
-    }
-
-    a{ color: inherit; text-decoration:none; }
-    .wrap{ max-width:1100px; margin:0 auto; padding: 28px 18px 64px; }
-
-    /* Header */
     header{
       position: sticky;
       top: 0;
@@ -94,11 +77,10 @@
       font-size:26px;
       margin-top:2px;
     }
-
     .links{
       display:flex;
       flex-wrap:wrap;
-      gap: 10px;
+      gap:10px;
       justify-content:flex-end;
       align-items:center;
     }
@@ -118,96 +100,43 @@
       color: var(--text);
     }
 
-    /* Hero */
-    section{ padding: 26px 0; scroll-margin-top: 88px; }
-    .hero{ padding-top: 54px; }
+    main{ max-width: 1100px; margin: 0 auto; padding: 28px 18px 64px; width:100%; flex:1; }
+
     .card{
       border-radius: var(--radius);
       background: linear-gradient(180deg, var(--panel), var(--panel2));
       border: 1px solid rgba(216,177,90,.28);
       box-shadow: var(--shadow);
       padding: 34px 26px;
-      position: relative;
-      overflow:hidden;
-    }
-    .card:before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      border-radius: calc(var(--radius) + 2px);
-      border: 1px solid rgba(242,182,198,.18);
-      pointer-events:none;
-    }
-    .heroGrid{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 22px;
-      align-items:center;
-    }
-    @media (max-width: 880px){
-      .heroGrid{ grid-template-columns: 1fr; }
     }
 
-    .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      font-size:12px;
-      letter-spacing:3px;
-      text-transform:uppercase;
-      color: var(--muted);
-    }
-    .dot{
-      width:7px; height:7px;
-      border-radius:999px;
-      background: var(--pink);
-      box-shadow: 0 0 0 4px rgba(242,182,198,.10);
-    }
     h1{
-      margin: 12px 0 10px;
-      font-weight:200;
-      font-size:44px;
-      letter-spacing:2px;
-      line-height:1.06;
+      margin: 0 0 10px;
+      font-weight: 200;
+      font-size: 42px;
+      letter-spacing: 2px;
+      line-height: 1.1;
     }
-    @media (max-width: 520px){ h1{ font-size:38px; } }
-    .subtitle{
-      margin:0;
-      color: var(--muted);
-      font-weight:300;
-      line-height:1.6;
-      max-width: 62ch;
-    }
-    .sigLine{
-      margin-top:16px;
-      display:flex;
-      align-items:center;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-    .sig{
+    .script{
       font-family:"Great Vibes", cursive;
       color: var(--gold);
-      font-size:34px;
-      line-height:1;
+      font-size: 42px;
+      margin: 0 0 14px;
+      line-height: 1;
     }
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 8px 12px;
-      border-radius:999px;
-      border: 1px solid rgba(216,177,90,.32);
-      background: rgba(255,255,255,.03);
+    p{
+      margin: 0;
       color: var(--muted);
-      font-size:12.5px;
       font-weight:300;
+      line-height: 1.7;
+      max-width: 78ch;
     }
-    .ctaRow{
-      margin-top:20px;
+
+    .row{
       display:flex;
-      gap:12px;
-      flex-wrap:wrap;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
       align-items:center;
     }
     .btn{
@@ -219,602 +148,78 @@
       border: 1px solid rgba(216,177,90,.45);
       background: rgba(216,177,90,.10);
       color: var(--text);
-      font-weight:300;
-      font-size:13px;
-      transition: transform .15s ease, background .15s ease, border-color .15s ease;
-    }
-    .btn:hover{
-      transform: translateY(-1px);
-      background: rgba(216,177,90,.14);
-      border-color: rgba(216,177,90,.62);
+      font-weight: 300;
+      font-size: 13px;
     }
     .btn.secondary{
       background: rgba(242,182,198,.08);
       border-color: rgba(242,182,198,.40);
     }
-    .btn.secondary:hover{
-      background: rgba(242,182,198,.12);
-      border-color: rgba(242,182,198,.55);
-    }
 
-    /* Side feature */
-    .feature{
+    .note{
+      margin-top: 18px;
       border-radius: 18px;
-      border: 1px solid rgba(216,177,90,.22);
-      background: rgba(0,0,0,.16);
-      padding: 18px;
-    }
-    .featureTop{
-      display:flex;
-      align-items:baseline;
-      justify-content:space-between;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-    .featureTop .label{
-      font-size:12px;
-      letter-spacing:3px;
-      text-transform:uppercase;
-      color: var(--muted);
-      font-weight:300;
-    }
-    .featureTop .script{
-      font-family:"Great Vibes", cursive;
-      color: var(--gold);
-      font-size:30px;
-      line-height:1;
-    }
-    .stats{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 10px;
-    }
-    .stat{
-      border-radius: 14px;
-      border: 1px solid rgba(216,177,90,.18);
-      background: rgba(255,255,255,.02);
-      padding: 12px;
-    }
-    .stat .n{
-      font-weight:300;
-      font-size:14px;
-      letter-spacing:1px;
-      color: var(--text);
-    }
-    .stat .t{
-      margin-top:6px;
-      font-size:12px;
-      color: var(--muted);
-      font-weight:300;
-      line-height:1.35;
-    }
-
-    /* Sections */
-    .sectionCard{
-      border-radius: var(--radius);
-      border: 1px solid rgba(216,177,90,.22);
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
-      box-shadow: 0 18px 45px rgba(0,0,0,.35);
-      padding: 26px;
-    }
-    .sectionTitleRow{
-      display:flex;
-      justify-content:space-between;
-      align-items:baseline;
-      gap: 16px;
-      flex-wrap:wrap;
-      margin-bottom: 14px;
-    }
-    .sectionTitle{
-      font-family:"Great Vibes", cursive;
-      color: var(--gold);
-      font-size:40px;
-      line-height:1;
-      margin:0;
-    }
-    .sectionSub{
-      margin:0;
-      color: var(--muted);
-      font-weight:300;
-      max-width: 78ch;
-      line-height:1.6;
-      font-size:13.5px;
-    }
-
-    /* Gallery grids (work even without images) */
-    .galleryGrid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .shot{
-      grid-column: span 4;
-      border-radius: 18px;
-      border: 1px solid rgba(216,177,90,.20);
-      background: rgba(255,255,255,.02);
-      overflow:hidden;
-      box-shadow: 0 12px 28px rgba(0,0,0,.28);
-      cursor: pointer;
-      transition: transform .15s ease, border-color .15s ease;
-    }
-    .shot:hover{
-      transform: translateY(-2px);
-      border-color: rgba(216,177,90,.45);
-    }
-
-    /* Image or placeholder */
-    .media{
-      width:100%;
-      height: 230px;
-      display:block;
-      background:
-        radial-gradient(900px 260px at 20% 10%, rgba(242,182,198,.18), transparent 60%),
-        radial-gradient(900px 260px at 85% 20%, rgba(216,177,90,.16), transparent 60%),
-        linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.01));
-      position: relative;
-    }
-    .media img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-    }
-    .media .ph{
-      position:absolute;
-      inset: 0;
-      display:flex;
-      align-items:flex-end;
-      padding: 12px;
-      font-size: 12px;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      color: rgba(246,243,238,.70);
-      font-weight:300;
-      pointer-events:none;
-    }
-
-    .cap{
-      padding: 12px 12px 14px;
-      border-top: 1px solid rgba(216,177,90,.14);
-    }
-    .cap .t{
-      margin:0 0 6px;
-      font-weight:300;
-      letter-spacing:1px;
-      font-size:13px;
-      text-transform:uppercase;
-      color: rgba(246,243,238,.92);
-    }
-    .cap .m{
-      margin:0;
-      color: var(--muted);
-      font-weight:300;
-      line-height:1.55;
-      font-size:13.5px;
-    }
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 6px 10px;
-      border-radius:999px;
-      border: 1px solid rgba(242,182,198,.35);
-      background: rgba(242,182,198,.08);
+      border: 1px solid rgba(242,182,198,.22);
+      background: rgba(242,182,198,.06);
+      padding: 14px;
       color: rgba(246,243,238,.86);
-      font-size: 12px;
-      font-weight:300;
-      margin-top: 10px;
-    }
-
-    @media (max-width: 950px){
-      .shot{ grid-column: span 6; }
-      .media{ height: 220px; }
-    }
-    @media (max-width: 560px){
-      .shot{ grid-column: span 12; }
-      .media{ height: 240px; }
-    }
-
-    /* Rocks for sale layout */
-    .saleGrid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 10px;
-      margin-top: 16px;
-    }
-    .saleCard{
-      grid-column: span 4;
-      border-radius: 18px;
-      border: 1px solid rgba(216,177,90,.20);
-      background: rgba(255,255,255,.02);
-      overflow:hidden;
-      box-shadow: 0 12px 28px rgba(0,0,0,.28);
-      transition: transform .15s ease, border-color .15s ease;
-    }
-    .saleCard:hover{
-      transform: translateY(-2px);
-      border-color: rgba(216,177,90,.45);
-    }
-    .priceTag{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(216,177,90,.40);
-      background: rgba(216,177,90,.12);
-      color: var(--text);
-      font-weight:300;
-      font-size:12.5px;
-      letter-spacing: .5px;
-    }
-    .saleTop{
-      display:flex;
-      align-items:baseline;
-      justify-content:space-between;
-      gap: 10px;
-      margin-bottom: 6px;
-    }
-    @media (max-width: 950px){ .saleCard{ grid-column: span 6; } }
-    @media (max-width: 560px){ .saleCard{ grid-column: span 12; } }
-
-    /* Lightbox */
-    .lightbox{
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.78);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 18px;
-      z-index: 999;
-    }
-    .lightbox.open{ display:flex; }
-    .lbCard{
-      width: min(980px, 100%);
-      border-radius: 18px;
-      border: 1px solid rgba(216,177,90,.35);
-      background: rgba(6,23,17,.65);
-      backdrop-filter: blur(10px);
-      overflow: hidden;
-      box-shadow: 0 30px 90px rgba(0,0,0,.65);
-    }
-    .lbImg{
-      width:100%;
-      max-height:72vh;
-      object-fit: contain;
-      display:block;
-      background: rgba(0,0,0,.25);
-    }
-    .lbCap{
-      padding: 14px 16px 16px;
-      border-top: 1px solid rgba(216,177,90,.18);
-    }
-    .lbCap .t{
-      margin:0 0 6px;
-      font-weight:300;
-      letter-spacing:1px;
-      text-transform:uppercase;
-      font-size:13px;
-    }
-    .lbCap .m{
-      margin:0;
-      color: var(--muted);
       font-weight:300;
       line-height:1.6;
-      font-size:13.5px;
-    }
-    .lbHint{
-      margin-top: 10px;
-      font-size: 12px;
-      color: rgba(246,243,238,.55);
-      font-weight: 300;
+      font-size: 13.5px;
     }
 
-    /* Footer */
-    footer{ padding: 26px 0 8px; color: var(--muted); font-weight:300; text-align:center; }
-    .footerCard{
-      border-radius: var(--radius);
-      border: 1px solid rgba(216,177,90,.22);
-      background: rgba(255,255,255,.02);
-      padding: 18px;
-    }
-    .small{
-      font-size:12px;
+    footer{
+      padding: 0 18px 18px;
+      text-align:center;
       color: rgba(246,243,238,.55);
-      margin-top: 12px;
+      font-size: 12px;
+      font-weight:300;
     }
   </style>
 </head>
 
 <body>
-  <div class="pattern"></div>
-
   <header>
     <div class="nav">
       <div class="brand">
         <div class="name">Rebecca McDonnell</div>
-        <div class="accent">Collected with intention</div>
+        <div class="accent">Contact</div>
       </div>
 
       <nav class="links" aria-label="Primary">
-        <a href="#vibes">Vibes</a>
-        <a href="#landscapes">Landscapes</a>
-        <a href="#rocks">Rocks for Sale</a>
-        <a href="#home">Home & Cats</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html#rocks">Rocks for Sale</a>
+        <a href="index.html#home">Home & Cats</a>
+        <a href="index.html">Home</a>
         <a href="https://instagram.com/rock.girl.cat.mom" target="_blank" rel="noopener">Instagram</a>
       </nav>
     </div>
   </header>
 
-  <main class="wrap">
+  <main>
+    <div class="card">
+      <div class="script">Contact Us</div>
+      <h1>Let’s connect</h1>
+      <p>
+        For rock inquiries, pricing, collaborations, or questions, reach out below.
+        (When you’re ready, replace the email address in the button.)
+      </p>
 
-    <!-- HERO -->
-    <section class="hero" id="top">
-      <div class="card">
-        <div class="heroGrid">
-          <div>
-            <div class="kicker"><span class="dot"></span> moody • elegant • curated</div>
-            <h1>Rebecca McDonnell</h1>
-            <p class="subtitle">
-              A curated corner for outdoor adventures, stones & crystals, and cozy home life —
-              forest green, blush, and champagne gold.
-            </p>
-
-            <div class="sigLine">
-              <div class="sig">welcome</div>
-              <div class="pill">Gold cursive for section titles + accents</div>
-              <div class="pill">Two worlds: outdoors + home</div>
-            </div>
-
-            <div class="ctaRow">
-              <a class="btn" href="#rocks">Rocks for Sale</a>
-              <a class="btn secondary" href="contact.html">Contact Us</a>
-            </div>
-          </div>
-
-          <aside class="feature" aria-label="Site sections">
-            <div class="featureTop">
-              <div class="label">Sections</div>
-              <div class="script">mood</div>
-            </div>
-            <div class="stats">
-              <div class="stat">
-                <div class="n">Vibes & Mood</div>
-                <div class="t">Aesthetic moments, textures, color stories.</div>
-              </div>
-              <div class="stat">
-                <div class="n">Landscapes</div>
-                <div class="t">Views, water, skies, quiet places.</div>
-              </div>
-              <div class="stat">
-                <div class="n">Rocks for Sale</div>
-                <div class="t">Pieces with prices + details, clean and organized.</div>
-              </div>
-              <div class="stat">
-                <div class="n">Home & Cats</div>
-                <div class="t">Cozy life, routines, and the cat crew.</div>
-              </div>
-            </div>
-          </aside>
-        </div>
+      <div class="row">
+        <a class="btn" href="mailto:hello@example.com">Email</a>
+        <a class="btn secondary" href="https://instagram.com/rock.girl.cat.mom" target="_blank" rel="noopener">DM on Instagram</a>
       </div>
-    </section>
 
-    <!-- VIBES & MOOD -->
-    <section id="vibes">
-      <div class="sectionCard">
-        <div class="sectionTitleRow">
-          <h2 class="sectionTitle">Vibes & Mood</h2>
-          <p class="sectionSub">
-            This is for aesthetic shots: textures, color stories, little moments. (Placeholders show until you upload.)
-          </p>
-        </div>
-
-        <div class="galleryGrid">
-          <!-- Replace data-full + img src with your files if you want images -->
-          <div class="shot" data-full="" data-title="Vibe 01" data-meta="Caption • optional price">
-            <div class="media">
-              <!-- Optional image: <img src="assets/vibes/vibes-01.jpg" alt="Vibe 01"> -->
-              <div class="ph">add image</div>
-            </div>
-            <div class="cap">
-              <p class="t">Vibe 01</p>
-              <p class="m">Caption • optional price</p>
-            </div>
-          </div>
-
-          <div class="shot" data-full="" data-title="Vibe 02" data-meta="Caption • optional price">
-            <div class="media"><div class="ph">add image</div></div>
-            <div class="cap"><p class="t">Vibe 02</p><p class="m">Caption • optional price</p></div>
-          </div>
-
-          <div class="shot" data-full="" data-title="Vibe 03" data-meta="Caption • optional price">
-            <div class="media"><div class="ph">add image</div></div>
-            <div class="cap"><p class="t">Vibe 03</p><p class="m">Caption • optional price</p></div>
-          </div>
-        </div>
-
-        <span class="badge">Tip: this section looks gorgeous with close-ups + soft light.</span>
-      </div>
-    </section>
-
-    <!-- LANDSCAPES -->
-    <section id="landscapes">
-      <div class="sectionCard">
-        <div class="sectionTitleRow">
-          <h2 class="sectionTitle">Landscapes</h2>
-          <p class="sectionSub">
-            Views, water, trails, skies — the quiet parts of your outdoor life. (Placeholders until you upload.)
-          </p>
-        </div>
-
-        <div class="galleryGrid">
-          <div class="shot" data-full="" data-title="Landscape 01" data-meta="Location • optional date">
-            <div class="media"><div class="ph">add image</div></div>
-            <div class="cap"><p class="t">Landscape 01</p><p class="m">Location • optional date</p></div>
-          </div>
-
-          <div class="shot" data-full="" data-title="Landscape 02" data-meta="Location • optional date">
-            <div class="media"><div class="ph">add image</div></div>
-            <div class="cap"><p class="t">Landscape 02</p><p class="m">Location • optional date</p></div>
-          </div>
-
-          <div class="shot" data-full="" data-title="Landscape 03" data-meta="Location • optional date">
-            <div class="media"><div class="ph">add image</div></div>
-            <div class="cap"><p class="t">Landscape 03</p><p class="m">Location • optional date</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ROCKS FOR SALE (separate from galleries) -->
-    <section id="rocks">
-      <div class="sectionCard">
-        <div class="sectionTitleRow">
-          <h2 class="sectionTitle">Rocks for Sale</h2>
-          <p class="sectionSub">
-            Clean, simple listings. When you send your 10 photos + prices, I’ll replace these with your real items.
-          </p>
-        </div>
-
-        <div class="saleGrid">
-          <div class="saleCard">
-            <div class="media">
-              <!-- Optional image: <img src="assets/sale/sale-01.jpg" alt="Rose quartz tower"> -->
-              <div class="ph">add image</div>
-            </div>
-            <div class="cap">
-              <div class="saleTop">
-                <p class="t" style="margin:0;">Item 01</p>
-                <span class="priceTag">$00</span>
-              </div>
-              <p class="m">Short details (size, type, where found) • optional shipping note</p>
-            </div>
-          </div>
-
-          <div class="saleCard">
-            <div class="media"><div class="ph">add image</div></div>
-            <div class="cap">
-              <div class="saleTop">
-                <p class="t" style="margin:0;">Item 02</p>
-                <span class="priceTag">$00</span>
-              </div>
-              <p class="m">Short details (size, type, where found) • optional shipping note</p>
-            </div>
-          </div>
-
-          <div class="saleCard">
-            <div class="media"><div class="ph">add image</div></div>
-            <div class="cap">
-              <div class="saleTop">
-                <p class="t" style="margin:0;">Item 03</p>
-                <span class="priceTag">$00</span>
-              </div>
-              <p class="m">Short details (size, type, where found) • optional shipping note</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="ctaRow">
-          <a class="btn" href="contact.html">Inquire / Buy</a>
-          <a class="btn secondary" href="https://instagram.com/rock.girl.cat.mom" target="_blank" rel="noopener">DM on Instagram</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- HOME & CATS -->
-    <section id="home">
-      <div class="sectionCard">
-        <div class="sectionTitleRow">
-          <h2 class="sectionTitle">Home & Cats</h2>
-          <p class="sectionSub">
-            Cozy home life, your cats, and the sweet daily moments. (Placeholders until you upload.)
-          </p>
-        </div>
-
-        <div class="galleryGrid">
-          <div class="shot" data-full="" data-title="Home 01" data-meta="Cat names • optional note">
-            <div class="media"><div class="ph">add image</div></div>
-            <div class="cap"><p class="t">Home 01</p><p class="m">Cat names • optional note</p></div>
-          </div>
-
-          <div class="shot" data-full="" data-title="Home 02" data-meta="Cat names • optional note">
-            <div class="media"><div class="ph">add image</div></div>
-            <div class="cap"><p class="t">Home 02</p><p class="m">Cat names • optional note</p></div>
-          </div>
-
-          <div class="shot" data-full="" data-title="Home 03" data-meta="Cat names • optional note">
-            <div class="media"><div class="ph">add image</div></div>
-            <div class="cap"><p class="t">Home 03</p><p class="m">Cat names • optional note</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <div class="footerCard">
-        <div style="font-family:'Great Vibes', cursive; color: var(--gold); font-size: 34px; line-height: 1;">
-          thank you for visiting
-        </div>
-        <div class="small">© <span id="y"></span> Rebecca McDonnell • Built on GitHub Pages</div>
-      </div>
-    </footer>
-
-  </main>
-
-  <!-- Lightbox (only opens if an image exists) -->
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <div class="lbCard" role="dialog" aria-modal="true" aria-label="Image preview">
-      <img class="lbImg" id="lbImg" alt="Preview">
-      <div class="lbCap">
-        <p class="t" id="lbTitle"></p>
-        <p class="m" id="lbMeta"></p>
-        <div class="lbHint">Tap outside the image (or press Esc) to close.</div>
+      <div class="note">
+        <strong style="color:#f6f3ee; font-weight:300;">Rocks for sale:</strong>
+        If you’re messaging about an item, include the item name (or screenshot) so I can confirm availability.
       </div>
     </div>
-  </div>
+  </main>
+
+  <footer>© <span id="y"></span> Rebecca McDonnell • Built on GitHub Pages</footer>
 
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
-
-    const lb = document.getElementById("lightbox");
-    const lbImg = document.getElementById("lbImg");
-    const lbTitle = document.getElementById("lbTitle");
-    const lbMeta = document.getElementById("lbMeta");
-
-    function openLB(src, title, meta){
-      if(!src) return;
-      lbImg.src = src;
-      lbTitle.textContent = title || "";
-      lbMeta.textContent = meta || "";
-      lb.classList.add("open");
-      lb.setAttribute("aria-hidden", "false");
-    }
-    function closeLB(){
-      lb.classList.remove("open");
-      lb.setAttribute("aria-hidden", "true");
-      lbImg.src = "";
-    }
-
-    // Open only when the card contains an <img> AND it loaded OR when data-full is provided
-    document.querySelectorAll(".shot").forEach(card => {
-      card.addEventListener("click", () => {
-        const img = card.querySelector("img");
-        const hasImg = img && img.complete && img.naturalWidth > 0;
-        const full = card.dataset.full || (hasImg ? img.src : "");
-        if(!full) return;
-
-        openLB(full, card.dataset.title, card.dataset.meta);
-      });
-    });
-
-    lb.addEventListener("click", (e) => { if (e.target === lb) closeLB(); });
-    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLB(); });
   </script>
 </body>
 </html>
