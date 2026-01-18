@@ -1,712 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rebecca McDonnell</title>
+<meta charset="UTF-8">
+<title>Rebecca McDonnell | Collected With Intention</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Thin modern + elegant script -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      /* Forest + blush + champagne gold (professional versions) */
-      --bg1:#061711;        /* very dark forest */
-      --bg2:#0b2a1f;        /* forest */
-      --card: rgba(255,255,255,.045);
-      --card2: rgba(255,255,255,.03);
+<style>
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #f5f5f5, #e8f0eb);
+    color: #333;
+}
 
-      --text:#f6f3ee;       /* warm off-white */
-      --muted: rgba(246,243,238,.72);
+header {
+    padding: 40px 20px;
+    text-align: center;
+}
 
-      --pink:#f2b6c6;       /* muted blush */
-      --gold:#d8b15a;       /* champagne gold */
-      --gold2:#b89442;      /* deeper gold for subtle contrast */
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+    font-weight: 600;
+}
 
-      --stroke: rgba(216,177,90,.52);
-      --stroke2: rgba(242,182,198,.35);
+header p {
+    font-size: 1.1em;
+    letter-spacing: 2px;
+    color: #6b8f7a;
+}
 
-      --shadow: 0 22px 60px rgba(0,0,0,.55);
-      --radius: 22px;
-    }
+nav {
+    text-align: center;
+    padding: 20px 0;
+}
 
-    *{ box-sizing:border-box; }
-    html, body { height: 100%; }
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(1000px 700px at 18% 12%, rgba(242,182,198,.13), transparent 60%),
-        radial-gradient(900px 650px at 85% 25%, rgba(216,177,90,.12), transparent 55%),
-        linear-gradient(135deg, var(--bg2) 0%, var(--bg1) 55%, #04110d 100%);
-      letter-spacing: .25px;
-      overflow-x: hidden;
-    }
+nav a {
+    margin: 0 12px;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+}
 
-    /* subtle overlay pattern */
-    .pattern{
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: .22;
-      background:
-        linear-gradient(to right, rgba(216,177,90,.08) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(216,177,90,.08) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: radial-gradient(circle at 30% 10%, black 0%, transparent 60%);
-    }
+nav a:hover {
+    color: #6b8f7a;
+}
 
-    a{ color: inherit; text-decoration: none; }
-    .wrap{ max-width: 1100px; margin: 0 auto; padding: 28px 18px 64px; }
+.section {
+    max-width: 900px;
+    margin: auto;
+    padding: 60px 20px;
+}
 
-    /* Header */
-    header{
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(6,23,17,.78), rgba(6,23,17,.35));
-      border-bottom: 1px solid rgba(216,177,90,.18);
-    }
-    .nav{
-      display:flex;
-      align-items:center;
-      justify-content: space-between;
-      gap: 14px;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 12px 18px;
-    }
-    .brand{
-      display:flex;
-      flex-direction: column;
-      line-height: 1.05;
-    }
-    .brand .name{
-      font-weight: 200;
-      letter-spacing: 6px;
-      text-transform: uppercase;
-      font-size: 14px;
-      opacity: .98;
-      white-space: nowrap;
-    }
-    .brand .accent{
-      font-family: "Great Vibes", cursive;
-      color: var(--gold);
-      font-size: 26px;
-      margin-top: 2px;
-    }
+.section h2 {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
 
-    .links{
-      display:flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      align-items:center;
-    }
-    .links a{
-      font-weight: 300;
-      font-size: 13px;
-      color: var(--muted);
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      transition: transform .15s ease, border-color .15s ease, background .15s ease, color .15s ease;
-    }
-    .links a:hover{
-      transform: translateY(-1px);
-      border-color: rgba(216,177,90,.35);
-      background: rgba(255,255,255,.03);
-      color: var(--text);
-    }
+.section p {
+    line-height: 1.8;
+    font-size: 1.05em;
+    text-align: center;
+}
 
-    /* Hero */
-    .hero{ padding: 54px 0 22px; }
-    .heroCard{
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, var(--card), var(--card2));
-      border: 1px solid rgba(216,177,90,.28);
-      box-shadow: var(--shadow);
-      padding: 34px 26px;
-      position: relative;
-      overflow: hidden;
-    }
-    .heroCard:before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      border-radius: calc(var(--radius) + 2px);
-      border: 1px solid rgba(242,182,198,.18);
-      pointer-events:none;
-    }
-    .heroGrid{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 22px;
-      align-items: center;
-    }
-    @media (max-width: 880px){ .heroGrid{ grid-template-columns: 1fr; } }
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
 
-    .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap: 10px;
-      font-size: 12px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    .dot{
-      width: 7px; height: 7px; border-radius: 999px;
-      background: var(--pink);
-      box-shadow: 0 0 0 4px rgba(242,182,198,.10);
-    }
+.placeholder {
+    background: #ddd;
+    height: 200px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-size: 0.9em;
+}
 
-    h1{
-      margin: 12px 0 10px;
-      font-weight: 200;
-      font-size: 44px;
-      letter-spacing: 2px;
-      line-height: 1.06;
-    }
-    @media (max-width: 520px){ h1{ font-size: 38px; } }
-
-    .subtitle{
-      margin: 0;
-      color: var(--muted);
-      font-weight: 300;
-      line-height: 1.6;
-      max-width: 58ch;
-    }
-    .sigLine{
-      margin-top: 16px;
-      display:flex;
-      align-items:center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-    .sig{
-      font-family: "Great Vibes", cursive;
-      color: var(--gold);
-      font-size: 34px;
-      line-height: 1;
-    }
-    .pill{
-      display:inline-flex;
-      gap: 8px;
-      align-items:center;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(216,177,90,.32);
-      background: rgba(255,255,255,.03);
-      color: var(--muted);
-      font-size: 12.5px;
-      font-weight: 300;
-    }
-
-    .ctaRow{
-      margin-top: 20px;
-      display:flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      align-items:center;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding: 11px 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(216,177,90,.45);
-      background: rgba(216,177,90,.10);
-      color: var(--text);
-      font-weight: 300;
-      font-size: 13px;
-      transition: transform .15s ease, background .15s ease, border-color .15s ease;
-    }
-    .btn:hover{
-      transform: translateY(-1px);
-      background: rgba(216,177,90,.14);
-      border-color: rgba(216,177,90,.62);
-    }
-    .btn.secondary{
-      background: rgba(242,182,198,.08);
-      border-color: rgba(242,182,198,.40);
-    }
-    .btn.secondary:hover{
-      background: rgba(242,182,198,.12);
-      border-color: rgba(242,182,198,.55);
-    }
-
-    /* Right feature card */
-    .feature{
-      border-radius: 18px;
-      border: 1px solid rgba(216,177,90,.22);
-      background: rgba(0,0,0,.16);
-      padding: 18px;
-    }
-    .featureTop{
-      display:flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-    .featureTop .label{
-      font-size: 12px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--muted);
-      font-weight: 300;
-    }
-    .featureTop .goldScript{
-      font-family: "Great Vibes", cursive;
-      color: var(--gold);
-      font-size: 30px;
-      line-height: 1;
-    }
-    .stats{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 10px;
-    }
-    .stat{
-      border-radius: 14px;
-      border: 1px solid rgba(216,177,90,.18);
-      background: rgba(255,255,255,.02);
-      padding: 12px;
-    }
-    .stat .n{
-      font-weight: 300;
-      font-size: 14px;
-      color: var(--text);
-      letter-spacing: 1px;
-    }
-    .stat .t{
-      margin-top: 6px;
-      font-size: 12px;
-      color: var(--muted);
-      font-weight: 300;
-      line-height: 1.35;
-    }
-
-    /* Sections */
-    section{ padding: 26px 0; scroll-margin-top: 86px; }
-    .sectionCard{
-      border-radius: var(--radius);
-      border: 1px solid rgba(216,177,90,.22);
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
-      box-shadow: 0 18px 45px rgba(0,0,0,.35);
-      padding: 26px;
-    }
-    .sectionTitleRow{
-      display:flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 14px;
-    }
-    .sectionTitle{
-      font-family: "Great Vibes", cursive;
-      color: var(--gold);
-      font-size: 40px;
-      line-height: 1;
-      margin: 0;
-    }
-    .sectionSub{
-      margin: 0;
-      color: var(--muted);
-      font-weight: 300;
-      max-width: 70ch;
-      line-height: 1.6;
-      font-size: 13.5px;
-    }
-
-    .grid3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 16px;
-    }
-    @media (max-width: 900px){ .grid3{ grid-template-columns: 1fr; } }
-
-    .tile{
-      border-radius: 18px;
-      border: 1px solid rgba(216,177,90,.18);
-      background: rgba(255,255,255,.02);
-      padding: 16px;
-    }
-    .tile h3{
-      margin: 0 0 8px;
-      font-weight: 300;
-      letter-spacing: 1px;
-      font-size: 14px;
-      text-transform: uppercase;
-    }
-    .tile p{
-      margin: 0;
-      color: var(--muted);
-      font-weight: 300;
-      line-height: 1.6;
-      font-size: 13.5px;
-    }
-
-    /* Gallery placeholders */
-    .galleryGrid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 10px;
-      margin-top: 16px;
-    }
-    .ph{
-      border-radius: 18px;
-      border: 1px dashed rgba(242,182,198,.45);
-      background: rgba(242,182,198,.06);
-      height: 120px;
-      position: relative;
-      overflow: hidden;
-    }
-    .ph:after{
-      content:"Add image";
-      position:absolute;
-      inset:auto 12px 12px 12px;
-      font-size: 12px;
-      color: rgba(246,243,238,.70);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: 300;
-    }
-    .ph.big{ height: 250px; }
-    .span6{ grid-column: span 6; }
-    .span4{ grid-column: span 4; }
-    .span3{ grid-column: span 3; }
-    @media (max-width: 900px){
-      .span6,.span4,.span3{ grid-column: span 12; }
-      .ph{ height: 160px; }
-      .ph.big{ height: 200px; }
-    }
-
-    /* Blog */
-    .blogGrid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 12px;
-      margin-top: 16px;
-    }
-    @media (max-width: 900px){ .blogGrid{ grid-template-columns: 1fr; } }
-
-    .post{
-      border-radius: 18px;
-      border: 1px solid rgba(216,177,90,.18);
-      background: rgba(255,255,255,.02);
-      padding: 18px;
-    }
-    .post .meta{
-      font-size: 12px;
-      color: var(--muted);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: 300;
-      margin-bottom: 8px;
-    }
-    .post .title{
-      font-weight: 300;
-      letter-spacing: 1px;
-      margin: 0 0 8px;
-      font-size: 16px;
-    }
-    .post p{
-      margin:0;
-      color: var(--muted);
-      font-weight: 300;
-      line-height: 1.6;
-      font-size: 13.5px;
-    }
-    .miniList{ display:grid; gap: 10px; }
-    .mini{
-      border-radius: 16px;
-      border: 1px solid rgba(242,182,198,.30);
-      background: rgba(242,182,198,.06);
-      padding: 14px;
-    }
-    .mini .t{
-      margin: 0 0 6px;
-      font-weight: 300;
-      letter-spacing: 1px;
-      font-size: 13px;
-      text-transform: uppercase;
-    }
-    .mini .d{
-      margin:0;
-      color: var(--muted);
-      font-weight: 300;
-      line-height: 1.5;
-      font-size: 13.5px;
-    }
-
-    /* Footer */
-    footer{ padding: 26px 0 8px; color: var(--muted); font-weight: 300; text-align:center; }
-    .footerCard{
-      border-radius: var(--radius);
-      border: 1px solid rgba(216,177,90,.22);
-      background: rgba(255,255,255,.02);
-      padding: 18px;
-    }
-    .footerRow{
-      display:flex;
-      gap: 10px;
-      justify-content:center;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-    .tag{
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(216,177,90,.26);
-      background: rgba(0,0,0,.12);
-      font-size: 13px;
-      color: var(--muted);
-    }
-    .tag strong{ color: var(--text); font-weight: 300; }
-    .small{
-      font-size: 12px;
-      color: rgba(246,243,238,.55);
-      margin-top: 12px;
-    }
-  </style>
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.9em;
+    color: #777;
+}
+</style>
 </head>
 
 <body>
-  <div class="pattern"></div>
 
-  <header>
-    <div class="nav">
-      <div class="brand">
-        <div class="name">Rebecca McDonnell</div>
-        <div class="accent">Portfolio</div>
-      </div>
+<header>
+    <h1>Rebecca McDonnell</h1>
+    <p>Collected With Intention</p>
+</header>
 
-      <nav class="links" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#work">What I Do</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#blog">Blog</a>
-        <a href="#contact">Contact</a>
-        <a href="https://instagram.com/rock.girl.cat.mom" target="_blank" rel="noopener">Instagram</a>
-      </nav>
+<nav>
+    <a href="#about">About</a>
+    <a href="#views">Views</a>
+    <a href="#stones">Stones for Sale</a>
+    <a href="#videos">Videos</a>
+    <a href="#blog">Blog</a>
+    <a href="#instagram">Instagram</a>
+</nav>
+
+<section id="about" class="section">
+    <h2>About Me</h2>
+    <p>
+        I collect what speaks to me.  
+        Not just stones — but moments, textures, light, stories, and pieces of nature that feel meaningful.<br><br>
+
+        Rock Girl Cat Mom is a space for things collected with intention.<br><br>
+
+        From shoreline stones and quiet views, to creative projects, memories, and moments that make me pause — everything here is chosen because it carries feeling.<br><br>
+
+        I believe nature holds stories if you slow down enough to notice them. Some become art. Some become treasures. Some simply become part of the journey.<br><br>
+
+        This space is where I share those finds — thoughtfully, honestly, and with intention.<br><br>
+
+        Welcome to my collection.
+    </p>
+</section>
+
+<section id="views" class="section">
+    <h2>Views</h2>
+    <p>Nature, shoreline, light, and quiet moments.</p>
+
+    <div class="grid">
+        <div class="placeholder">View Photo 1</div>
+        <div class="placeholder">View Photo 2</div>
+        <div class="placeholder">View Photo 3</div>
+        <div class="placeholder">View Photo 4</div>
     </div>
-  </header>
+</section>
 
-  <main class="wrap">
-    <!-- HERO -->
-    <section class="hero" id="top">
-      <div class="heroCard">
-        <div class="heroGrid">
-          <div>
-            <div class="kicker"><span class="dot"></span> dark • elegant • curated</div>
-            <h1>Rebecca McDonnell</h1>
-            <p class="subtitle">
-              A curated corner for rockhounding finds, creative projects, and the little things that make life feel beautiful.
-              Dark, classy, and intentional — with a touch of blush and gold.
-            </p>
+<section id="stones" class="section">
+    <h2>Stones for Sale</h2>
+    <p>Each piece is collected with care and intention.</p>
 
-            <div class="sigLine">
-              <div class="sig">welcome</div>
-              <div class="pill">Forest Green • Blush Pink • Champagne Gold</div>
-              <div class="pill">Thin typography • Cursive accents</div>
-            </div>
+    <div class="grid">
+        <div class="placeholder">Stone 1</div>
+        <div class="placeholder">Stone 2</div>
+        <div class="placeholder">Stone 3</div>
+        <div class="placeholder">Stone 4</div>
+    </div>
+</section>
 
-            <div class="ctaRow">
-              <a class="btn" href="#gallery">View Gallery</a>
-              <a class="btn secondary" href="https://instagram.com/rock.girl.cat.mom" target="_blank" rel="noopener">Follow on Instagram</a>
-            </div>
-          </div>
+<section id="videos" class="section">
+    <h2>Videos</h2>
+    <p>Short stories, finds, and moments captured in motion.</p>
 
-          <aside class="feature" aria-label="Highlights">
-            <div class="featureTop">
-              <div class="label">Highlights</div>
-              <div class="goldScript">details</div>
-            </div>
-            <div class="stats">
-              <div class="stat">
-                <div class="n">Rockhounding</div>
-                <div class="t">Finds, locations, and short stories behind special pieces.</div>
-              </div>
-              <div class="stat">
-                <div class="n">Gallery</div>
-                <div class="t">Photos & videos organized in a clean, aesthetic layout.</div>
-              </div>
-              <div class="stat">
-                <div class="n">Blog</div>
-                <div class="t">Notes, tips, and “what I learned” posts — simple and readable.</div>
-              </div>
-              <div class="stat">
-                <div class="n">Cats & life</div>
-                <div class="t">Soft moments, routines, and calm, cozy updates.</div>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
+    <div class="grid">
+        <div class="placeholder">Video 1</div>
+        <div class="placeholder">Video 2</div>
+        <div class="placeholder">Video 3</div>
+    </div>
+</section>
 
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="sectionCard">
-        <div class="sectionTitleRow">
-          <h2 class="sectionTitle">About</h2>
-          <p class="sectionSub">
-            Replace this with your short bio (2–4 sentences). If you paste your draft, I’ll rewrite it into this tone.
-          </p>
-        </div>
+<section id="blog" class="section">
+    <h2>Blog</h2>
+    <p>Thoughts, finds, stories, and quiet reflections coming soon.</p>
+</section>
 
-        <div class="grid3">
-          <div class="tile">
-            <h3>Who I am</h3>
-            <p>Creative, detail-driven, and always collecting little moments worth keeping.</p>
-          </div>
-          <div class="tile">
-            <h3>What I love</h3>
-            <p>Rockhounding, cozy routines, and building a life that feels calm and intentional.</p>
-          </div>
-          <div class="tile">
-            <h3>Why this site</h3>
-            <p>A clean home base for my work — organized, aesthetic, and easy to explore.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<section id="instagram" class="section">
+    <h2>Instagram</h2>
+    <p>
+        Follow along on Instagram:<br>
+        <strong>@rock.girl.cat.mom</strong>
+    </p>
+</section>
 
-    <!-- WHAT I DO -->
-    <section id="work">
-      <div class="sectionCard">
-        <div class="sectionTitleRow">
-          <h2 class="sectionTitle">What I Do</h2>
-          <p class="sectionSub">
-            Simple, professional, and clear: what people can expect when they land here.
-          </p>
-        </div>
+<footer>
+    © 2026 Rebecca McDonnell · Collected With Intention
+</footer>
 
-        <div class="grid3">
-          <div class="tile">
-            <h3>Curate finds</h3>
-            <p>Highlight standout pieces with clean labels and a consistent aesthetic.</p>
-          </div>
-          <div class="tile">
-            <h3>Create content</h3>
-            <p>Short videos and photos that are calm to scroll and visually cohesive.</p>
-          </div>
-          <div class="tile">
-            <h3>Share notes</h3>
-            <p>Mini blog posts with tips, locations, and the story behind a find.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- GALLERY -->
-    <section id="gallery">
-      <div class="sectionCard">
-        <div class="sectionTitleRow">
-          <h2 class="sectionTitle">Gallery</h2>
-          <p class="sectionSub">
-            These are placeholders. Next we’ll swap them for your real photos (and optional video embeds).
-          </p>
-        </div>
-
-        <div class="galleryGrid">
-          <div class="ph big span6"></div>
-          <div class="ph big span6"></div>
-
-          <div class="ph span4"></div>
-          <div class="ph span4"></div>
-          <div class="ph span4"></div>
-
-          <div class="ph span3"></div>
-          <div class="ph span3"></div>
-          <div class="ph span3"></div>
-          <div class="ph span3"></div>
-        </div>
-
-        <div class="ctaRow" style="margin-top:16px;">
-          <a class="btn" href="https://instagram.com/rock.girl.cat.mom" target="_blank" rel="noopener">See more on Instagram</a>
-          <a class="btn secondary" href="#contact">Collaborate</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- BLOG -->
-    <section id="blog">
-      <div class="sectionCard">
-        <div class="sectionTitleRow">
-          <h2 class="sectionTitle">Blog</h2>
-          <p class="sectionSub">
-            Clean journal-style posts. We can make each one its own page next.
-          </p>
-        </div>
-
-        <div class="blogGrid">
-          <article class="post">
-            <div class="meta">Sample Post • Replace later</div>
-            <h3 class="title">What I’m collecting right now</h3>
-            <p>
-              Write a short paragraph here: what you found, why it matters to you, and where you’re going next.
-            </p>
-          </article>
-
-          <div class="miniList">
-            <div class="mini">
-              <p class="t">Quick Tip</p>
-              <p class="d">Add bite-size tips like “what I bring,” “how I spot jasper,” or “best beach times.”</p>
-            </div>
-            <div class="mini">
-              <p class="t">Next Post</p>
-              <p class="d">We’ll turn these into clickable posts once you’re ready for multiple pages.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="sectionCard">
-        <div class="sectionTitleRow">
-          <h2 class="sectionTitle">Contact</h2>
-          <p class="sectionSub">
-            Easiest + cleanest is an email button. Replace the email below when you’re ready.
-          </p>
-        </div>
-
-        <div class="ctaRow">
-          <a class="btn" href="mailto:hello@example.com">Email me</a>
-          <a class="btn secondary" href="https://instagram.com/rock.girl.cat.mom" target="_blank" rel="noopener">DM on Instagram</a>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <div class="footerCard">
-        <div style="font-family:'Great Vibes', cursive; color: var(--gold); font-size: 34px; line-height: 1;">
-          thank you for visiting
-        </div>
-        <div class="footerRow">
-          <span class="tag"><strong>Forest</strong> background</span>
-          <span class="tag"><strong>Blush</strong> accent</span>
-          <span class="tag"><strong>Gold</strong> outlines</span>
-        </div>
-        <div class="small">© <span id="y"></span> Rebecca McDonnell • Built on GitHub Pages</div>
-      </div>
-    </footer>
-  </main>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
