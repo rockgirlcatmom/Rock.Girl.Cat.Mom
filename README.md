@@ -1,1 +1,0 @@
-# Rock.Girl.Cat.Mom
