@@ -23,9 +23,6 @@
       --pink:#f2b6c6;
       --gold:#d8b15a;
 
-      --line: rgba(216,177,90,.22);
-      --line2: rgba(242,182,198,.20);
-
       --shadow: 0 22px 60px rgba(0,0,0,.55);
       --radius: 22px;
     }
@@ -59,7 +56,6 @@
     a{ color: inherit; text-decoration:none; }
     .wrap{ max-width:1100px; margin:0 auto; padding: 28px 18px 64px; }
 
-    /* Header */
     header{
       position: sticky;
       top: 0;
@@ -119,7 +115,6 @@
       color: var(--text);
     }
 
-    /* Cards / sections */
     section{ padding: 22px 0; scroll-margin-top: 88px; }
 
     .hero{ padding-top: 46px; }
@@ -262,7 +257,6 @@
       font-size:13.5px;
     }
 
-    /* Media cards / grids */
     .grid{
       display:grid;
       grid-template-columns: repeat(12, 1fr);
@@ -302,19 +296,6 @@
       display:block;
       background: rgba(0,0,0,.18);
     }
-    .ph{
-      position:absolute;
-      inset: 0;
-      display:flex;
-      align-items:flex-end;
-      padding: 12px;
-      font-size: 12px;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      color: rgba(246,243,238,.70);
-      font-weight:300;
-      pointer-events:none;
-    }
 
     .cap{
       padding: 12px 12px 14px;
@@ -345,7 +326,6 @@
       .media{ height: 240px; }
     }
 
-    /* Sale specifics */
     .priceTag{
       display:inline-flex;
       align-items:center;
@@ -368,7 +348,6 @@
       margin-bottom: 6px;
     }
 
-    /* Lightbox */
     .lightbox{
       position: fixed;
       inset: 0;
@@ -421,7 +400,43 @@
       font-weight: 300;
     }
 
-    /* Footer */
+    .blogGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    @media (max-width: 900px){ .blogGrid{ grid-template-columns: 1fr; } }
+    .blogCard{
+      border-radius: 18px;
+      border: 1px solid rgba(216,177,90,.20);
+      background: rgba(255,255,255,.02);
+      padding: 18px;
+    }
+    .blogMeta{
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 300;
+      margin-bottom: 8px;
+    }
+    .blogH{
+      margin: 0 0 8px;
+      font-weight: 300;
+      letter-spacing: 1px;
+      font-size: 15px;
+      text-transform: uppercase;
+      color: rgba(246,243,238,.92);
+    }
+    .blogP{
+      margin: 0;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.65;
+      font-size: 13.5px;
+    }
+
     footer{ padding: 26px 0 8px; color: var(--muted); font-weight:300; text-align:center; }
     .footerCard{
       border-radius: var(--radius);
@@ -452,7 +467,7 @@
         <a href="#landscapes">Landscapes</a>
         <a href="#finds">Finds</a>
         <a href="#home">Home & Cats</a>
-        <a href="blog.html">Blog</a>
+        <a href="#blog">Blog</a>
         <a href="contact.html">Contact</a>
         <a href="https://instagram.com/rock.girl.cat.mom" target="_blank" rel="noopener">Instagram</a>
       </nav>
@@ -461,7 +476,6 @@
 
   <main class="wrap">
 
-    <!-- HERO -->
     <section class="hero" id="top">
       <div class="card">
         <div class="kicker"><span class="dot"></span> elegant • curated • collected</div>
@@ -479,53 +493,69 @@
 
         <div class="ctaRow">
           <a class="btn" href="#sale">Shop Rocks</a>
-          <a class="btn secondary" href="#landscapes">See Landscapes</a>
+          <a class="btn secondary" href="#blog">Read Blog</a>
           <a class="btn secondary" href="#home">Home & Cats</a>
         </div>
       </div>
     </section>
 
-    <!-- ROCKS FOR SALE (TOP) -->
+    <!-- ROCKS FOR SALE -->
     <section id="sale">
       <div class="sectionCard">
         <div class="sectionTitleRow">
           <h2 class="sectionTitle">Rocks for Sale</h2>
-          <p class="sectionSub">
-            Your shop-style section. When you send photos + prices, I’ll replace these with your real items.
-          </p>
+          <p class="sectionSub">First release — message to purchase via Contact or Instagram.</p>
         </div>
 
         <div class="grid">
-          <div class="tile" data-full="" data-title="Item 01" data-meta="$00 • details">
-            <div class="media"><div class="ph">add image</div></div>
+          <!-- 1) White - $8 -->
+          <div class="tile"
+               data-full="assets/sale/white-8.jpg"
+               data-title="White Stone"
+               data-meta="$8 • polished beach find">
+            <div class="media">
+              <img src="assets/sale/white-8.jpg" alt="White stone for sale">
+            </div>
             <div class="cap">
               <div class="saleTop">
-                <p class="t" style="margin:0;">Item 01</p>
-                <span class="priceTag">$00</span>
+                <p class="t" style="margin:0;">White Stone</p>
+                <span class="priceTag">$8</span>
               </div>
-              <p class="m">Type • size • optional location • optional note</p>
+              <p class="m">Smooth white stone with natural dark inclusions.</p>
             </div>
           </div>
 
-          <div class="tile" data-full="" data-title="Item 02" data-meta="$00 • details">
-            <div class="media"><div class="ph">add image</div></div>
+          <!-- 2) Orange - $5 -->
+          <div class="tile"
+               data-full="assets/sale/orange-5.jpg"
+               data-title="Orange Stone"
+               data-meta="$5 • natural beach find">
+            <div class="media">
+              <img src="assets/sale/orange-5.jpg" alt="Orange stone for sale">
+            </div>
             <div class="cap">
               <div class="saleTop">
-                <p class="t" style="margin:0;">Item 02</p>
-                <span class="priceTag">$00</span>
+                <p class="t" style="margin:0;">Orange Stone</p>
+                <span class="priceTag">$5</span>
               </div>
-              <p class="m">Type • size • optional location • optional note</p>
+              <p class="m">Warm orange tones with smoky dark patterning.</p>
             </div>
           </div>
 
-          <div class="tile" data-full="" data-title="Item 03" data-meta="$00 • details">
-            <div class="media"><div class="ph">add image</div></div>
+          <!-- 3) Petrified Wood - $15 -->
+          <div class="tile"
+               data-full="assets/sale/petrified-wood-15.jpg"
+               data-title="Petrified Wood"
+               data-meta="$15 • petrified wood">
+            <div class="media">
+              <img src="assets/sale/petrified-wood-15.jpg" alt="Petrified wood for sale">
+            </div>
             <div class="cap">
               <div class="saleTop">
-                <p class="t" style="margin:0;">Item 03</p>
-                <span class="priceTag">$00</span>
+                <p class="t" style="margin:0;">Petrified Wood</p>
+                <span class="priceTag">$15</span>
               </div>
-              <p class="m">Type • size • optional location • optional note</p>
+              <p class="m">Petrified wood piece with beautiful natural banding.</p>
             </div>
           </div>
         </div>
@@ -537,59 +567,51 @@
       </div>
     </section>
 
-    <!-- LANDSCAPES / SUNSETS / VIEWS -->
+    <!-- LANDSCAPES -->
     <section id="landscapes">
       <div class="sectionCard">
         <div class="sectionTitleRow">
           <h2 class="sectionTitle">Landscapes</h2>
-          <p class="sectionSub">
-            Sunsets, water, views, trails — clean and separate from rocks (exactly like you pictured).
-          </p>
+          <p class="sectionSub">Sunsets, water, views, trails — separate from rocks.</p>
         </div>
 
         <div class="grid">
           <div class="tile" data-full="" data-title="Landscape 01" data-meta="Location • optional date">
-            <div class="media"><div class="ph">add image</div></div>
-            <div class="cap"><p class="t">Landscape 01</p><p class="m">Location • optional date</p></div>
+            <div class="media"></div>
+            <div class="cap"><p class="t">Landscape 01</p><p class="m">Add image</p></div>
           </div>
-
           <div class="tile" data-full="" data-title="Landscape 02" data-meta="Location • optional date">
-            <div class="media"><div class="ph">add image</div></div>
-            <div class="cap"><p class="t">Landscape 02</p><p class="m">Location • optional date</p></div>
+            <div class="media"></div>
+            <div class="cap"><p class="t">Landscape 02</p><p class="m">Add image</p></div>
           </div>
-
           <div class="tile" data-full="" data-title="Landscape 03" data-meta="Location • optional date">
-            <div class="media"><div class="ph">add image</div></div>
-            <div class="cap"><p class="t">Landscape 03</p><p class="m">Location • optional date</p></div>
+            <div class="media"></div>
+            <div class="cap"><p class="t">Landscape 03</p><p class="m">Add image</p></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ROCKS / BEACH FINDS / CRYSTALS (NOT FOR SALE) -->
+    <!-- FINDS -->
     <section id="finds">
       <div class="sectionCard">
         <div class="sectionTitleRow">
           <h2 class="sectionTitle">Finds</h2>
-          <p class="sectionSub">
-            Your personal collection: beach finds, stones, crystals — separate from the shop.
-          </p>
+          <p class="sectionSub">Personal collection — separate from the shop.</p>
         </div>
 
         <div class="grid">
           <div class="tile" data-full="" data-title="Find 01" data-meta="Caption • optional location">
-            <div class="media"><div class="ph">add image</div></div>
-            <div class="cap"><p class="t">Find 01</p><p class="m">Caption • optional location</p></div>
+            <div class="media"></div>
+            <div class="cap"><p class="t">Find 01</p><p class="m">Add image</p></div>
           </div>
-
           <div class="tile" data-full="" data-title="Find 02" data-meta="Caption • optional location">
-            <div class="media"><div class="ph">add image</div></div>
-            <div class="cap"><p class="t">Find 02</p><p class="m">Caption • optional location</p></div>
+            <div class="media"></div>
+            <div class="cap"><p class="t">Find 02</p><p class="m">Add image</p></div>
           </div>
-
           <div class="tile" data-full="" data-title="Find 03" data-meta="Caption • optional location">
-            <div class="media"><div class="ph">add image</div></div>
-            <div class="cap"><p class="t">Find 03</p><p class="m">Caption • optional location</p></div>
+            <div class="media"></div>
+            <div class="cap"><p class="t">Find 03</p><p class="m">Add image</p></div>
           </div>
         </div>
       </div>
@@ -600,25 +622,54 @@
       <div class="sectionCard">
         <div class="sectionTitleRow">
           <h2 class="sectionTitle">Home & Cats</h2>
-          <p class="sectionSub">
-            Cozy home life and the cat crew. Simple, personal, and separate from outdoors.
-          </p>
+          <p class="sectionSub">Cozy home life and the cat crew.</p>
         </div>
 
         <div class="grid">
           <div class="tile" data-full="" data-title="Home 01" data-meta="Cat names • optional note">
-            <div class="media"><div class="ph">add image</div></div>
-            <div class="cap"><p class="t">Home 01</p><p class="m">Cat names • optional note</p></div>
+            <div class="media"></div>
+            <div class="cap"><p class="t">Home 01</p><p class="m">Add image</p></div>
           </div>
-
           <div class="tile" data-full="" data-title="Home 02" data-meta="Cat names • optional note">
-            <div class="media"><div class="ph">add image</div></div>
-            <div class="cap"><p class="t">Home 02</p><p class="m">Cat names • optional note</p></div>
+            <div class="media"></div>
+            <div class="cap"><p class="t">Home 02</p><p class="m">Add image</p></div>
+          </div>
+          <div class="tile" data-full="" data-title="Home 03" data-meta="Cat names • optional note">
+            <div class="media"></div>
+            <div class="cap"><p class="t">Home 03</p><p class="m">Add image</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG -->
+    <section id="blog">
+      <div class="sectionCard">
+        <div class="sectionTitleRow">
+          <h2 class="sectionTitle">Blog</h2>
+          <p class="sectionSub">A calm journal space for finds, places, and little stories.</p>
+        </div>
+
+        <div class="ctaRow">
+          <a class="btn" href="blog.html">Open Blog Page</a>
+          <a class="btn secondary" href="contact.html">Ask a question</a>
+        </div>
+
+        <div class="blogGrid">
+          <div class="blogCard">
+            <div class="blogMeta">Sample post</div>
+            <div class="blogH">What I’m collecting right now</div>
+            <div class="blogP">Replace this with your first real post when you’re ready.</div>
           </div>
 
-          <div class="tile" data-full="" data-title="Home 03" data-meta="Cat names • optional note">
-            <div class="media"><div class="ph">add image</div></div>
-            <div class="cap"><p class="t">Home 03</p><p class="m">Cat names • optional note</p></div>
+          <div class="blogCard">
+            <div class="blogMeta">Ideas</div>
+            <div class="blogH">Three posts I want to write</div>
+            <div class="blogP">
+              • Best time to go hunting (tide/daylight)<br>
+              • My simple “what is it?” checklist<br>
+              • Favorite Niagara spots for views
+            </div>
           </div>
         </div>
       </div>
@@ -629,58 +680,4 @@
         <div style="font-family:'Great Vibes', cursive; color: var(--gold); font-size: 34px; line-height: 1;">
           thank you for visiting
         </div>
-        <div class="small">© <span id="y"></span> Rebecca McDonnell • Built on GitHub Pages</div>
-      </div>
-    </footer>
-
-  </main>
-
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <div class="lbCard" role="dialog" aria-modal="true" aria-label="Image preview">
-      <img class="lbImg" id="lbImg" alt="Preview">
-      <div class="lbCap">
-        <p class="t" id="lbTitle"></p>
-        <p class="m" id="lbMeta"></p>
-        <div class="lbHint">Tap outside the image (or press Esc) to close.</div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-
-    const lb = document.getElementById("lightbox");
-    const lbImg = document.getElementById("lbImg");
-    const lbTitle = document.getElementById("lbTitle");
-    const lbMeta = document.getElementById("lbMeta");
-
-    function openLB(src, title, meta){
-      if(!src) return;
-      lbImg.src = src;
-      lbTitle.textContent = title || "";
-      lbMeta.textContent = meta || "";
-      lb.classList.add("open");
-      lb.setAttribute("aria-hidden", "false");
-    }
-    function closeLB(){
-      lb.classList.remove("open");
-      lb.setAttribute("aria-hidden", "true");
-      lbImg.src = "";
-    }
-
-    document.querySelectorAll(".tile").forEach(card => {
-      card.addEventListener("click", () => {
-        const img = card.querySelector("img");
-        const hasImg = img && img.complete && img.naturalWidth > 0;
-        const full = card.dataset.full || (hasImg ? img.src : "");
-        if(!full) return;
-        openLB(full, card.dataset.title, card.dataset.meta);
-      });
-    });
-
-    lb.addEventListener("click", (e) => { if (e.target === lb) closeLB(); });
-    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLB(); });
-  </script>
-</body>
-</html>
+        <div class="small">© <span id="y"></span> Rebec
