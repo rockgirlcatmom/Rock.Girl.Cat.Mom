@@ -1,223 +1,109 @@
-/* style.css — Vintage Botanical (darker sage + gold + rose accents) */
-
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Parisienne&family=Inter:wght@400;500;600&display=swap');
-
-:root{
-  /* Background + surfaces */
-  --bg: #dfe9e1;                 /* sage base (not white) */
-  --bg-deep: #cfe0d4;            /* deeper sage */
-  --surface: rgba(255,255,255,.42);
-  --surface-2: rgba(255,255,255,.28);
-
-  /* Text */
-  --text: #13251d;
-  --muted: #4e665a;
-
-  /* Accents */
-  --gold: #b8943b;               /* warmer, more “vintage gold” */
-  --gold-soft: rgba(184,148,59,.22);
-  --sage: #2f7a5f;               /* richer green */
-  --sage-soft: rgba(47,122,95,.18);
-  --rose: #c97795;               /* muted vintage rose */
-  --rose-soft: rgba(201,119,149,.18);
-
-  /* Lines + radius + shadow */
-  --line: rgba(19,37,29,.14);
-  --radius: 16px;
-  --shadow: 0 16px 34px rgba(19,37,29,.10);
-
-  --max: 980px;
+/* ---------- GLOBAL RESET ---------- */
+* {
+  box-sizing: border-box;
 }
 
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-
-body{
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color: var(--text);
-  line-height: 1.65;
-
-  /* Vintage botanical feel: layered gradients (soft “paper” look) */
-  background:
-    radial-gradient(900px 520px at 10% -10%, var(--rose-soft), transparent 60%),
-    radial-gradient(900px 520px at 90% -5%, var(--sage-soft), transparent 60%),
-    radial-gradient(700px 480px at 50% 110%, var(--gold-soft), transparent 55%),
-    linear-gradient(180deg, var(--bg-deep) 0%, var(--bg) 55%, #dde7df 100%);
-}
-
-a{color:inherit;text-decoration:none}
-a:hover{opacity:.9}
-
-.container{
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 28px 18px 70px;
-}
-
-/* NAV */
-.nav{
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: rgba(223,233,225,.86);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--line);
-}
-
-.nav-inner{
-  max-width: var(--max);
-  margin: 0 auto;
-  display:flex;
-  justify-content: space-between;
-  align-items:center;
-  gap: 14px;
-  padding: 16px 18px;
-}
-
-.brand{
-  font-family: 'Parisienne', cursive;
-  font-size: 30px;
-  color: var(--gold);
-  letter-spacing: .2px;
-  text-shadow: 0 1px 0 rgba(255,255,255,.35);
-}
-
-.nav-links{
-  display:flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  align-items:center;
-}
-
-.nav-links a{
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 16px;
-  color: var(--muted);
-  padding: 6px 2px;
-  border-bottom: 2px solid transparent;
-}
-
-.nav-links a.active{
-  color: var(--text);
-  border-bottom-color: var(--gold);
-}
-
-.nav-links a:hover{color: var(--text);}
-
-/* HERO */
-.hero{padding: 52px 0 22px;}
-
-.kicker{
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 18px;
-  color: var(--muted);
-}
-
-h1{
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 600;
-  font-size: clamp(40px, 5vw, 60px);
-  margin: 10px 0 14px;
-  letter-spacing: -.2px;
-}
-
-p.lead{
-  max-width: 70ch;
-  font-size: 18px;
-  color: var(--muted);
+body {
   margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #ffffff;
+  color: #333;
+  line-height: 1.7;
 }
 
-/* BUTTONS (vintage, not puffy) */
-.btnrow{
-  display:flex;
-  gap: 12px;
-  flex-wrap:wrap;
-  margin-top: 22px;
+/* ---------- HEADER & NAV ---------- */
+header {
+  padding: 28px 20px;
+  text-align: center;
 }
 
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding: 10px 16px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,.18);
-  font-weight: 600;
-  font-size: 14px;
-}
-
-.btn.primary{
-  border: none;
-  color: #fff;
-  background: linear-gradient(135deg, var(--rose), var(--sage));
-  box-shadow: var(--shadow);
-}
-
-.btn.gold{
-  border: 1px solid rgba(184,148,59,.45);
-  background: rgba(184,148,59,.10);
-}
-
-/* SECTIONS */
-.split{
-  display:grid;
-  grid-template-columns: 1.15fr .85fr;
+nav {
+  display: flex;
+  justify-content: center;
   gap: 22px;
-  margin-top: 34px;
-}
-@media (max-width: 860px){ .split{grid-template-columns: 1fr;} }
-
-.panel{
-  border: 1px solid var(--line);
-  background: var(--surface);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 18px;
+  margin-top: 12px;
+  flex-wrap: wrap;
 }
 
-.panel h2{
-  font-family: 'Cormorant Garamond', serif;
+nav a {
+  text-decoration: none;
+  color: #4a7c59;
   font-weight: 600;
-  font-size: 22px;
-  margin: 0 0 10px;
 }
 
-.panel p{margin:0;color:var(--muted)}
+nav a:hover {
+  text-decoration: underline;
+}
 
-.section{margin-top: 16px}
+/* ---------- MAIN CONTENT ---------- */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
 
-.list{
-  display:grid;
+/* ---------- CALL OUT / NOTICE ---------- */
+.notice,
+.cta {
+  background: #f3f7f5;
+  border-left: 5px solid #4a7c59;
+  padding: 18px;
+  border-radius: 12px;
+  margin: 30px 0;
+}
+
+/* ---------- GALLERY ---------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 12px;
 }
 
-.item{
-  border: 1px solid rgba(19,37,29,.10);
-  border-radius: 14px;
-  background: var(--surface-2);
-  padding: 12px 14px;
+.gallery img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
-.item strong{
-  display:block;
-  font-weight: 650;
+/* ---------- FORMS ---------- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
-.item span{
-  display:block;
-  margin-top: 2px;
+input,
+textarea {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+}
+
+textarea {
+  min-height: 120px;
+}
+
+button {
+  padding: 12px;
+  background-color: #4a7c59;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* ---------- FOOTER (OPTIONAL LATER) ---------- */
+footer {
+  text-align: center;
+  padding: 30px 20px;
   font-size: 14px;
-  color: var(--muted);
-}
-
-/* FOOTER */
-.footer{
-  margin-top: 44px;
-  padding-top: 16px;
-  border-top: 1px solid var(--line);
-  color: var(--muted);
-  font-size: 13px;
+  color: #777;
 }
