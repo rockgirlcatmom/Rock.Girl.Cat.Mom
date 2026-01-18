@@ -1,737 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Rebecca McDonnell</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&family=Great+Vibes&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg1:#061711;
-      --bg2:#0b2a1f;
-
-      --panel: rgba(255,255,255,.045);
-      --panel2: rgba(255,255,255,.03);
-
-      --text:#f6f3ee;
-      --muted: rgba(246,243,238,.72);
-
-      --pink:#f2b6c6;
+      --green:#0b2a1f;
+      --green-dark:#061711;
       --gold:#d8b15a;
-
-      --shadow: 0 22px 60px rgba(0,0,0,.55);
-      --radius: 22px;
+      --pink:#f2b6c6;
+      --text:#f6f3ee;
+      --muted:rgba(246,243,238,.7);
     }
 
-    *{ box-sizing:border-box; }
-    html, body{ height:100%; }
+    *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(1000px 700px at 18% 12%, rgba(242,182,198,.13), transparent 60%),
-        radial-gradient(900px 650px at 85% 25%, rgba(216,177,90,.12), transparent 55%),
-        linear-gradient(135deg, var(--bg2) 0%, var(--bg1) 55%, #04110d 100%);
-      letter-spacing:.25px;
-      overflow-x:hidden;
+      font-family:Inter,system-ui,sans-serif;
+      background:linear-gradient(135deg,var(--green),var(--green-dark));
+      color:var(--text);
     }
-
-    .pattern{
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: .20;
-      background:
-        linear-gradient(to right, rgba(216,177,90,.08) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(216,177,90,.08) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: radial-gradient(circle at 30% 10%, black 0%, transparent 60%);
-    }
-
-    a{ color: inherit; text-decoration:none; }
-    .wrap{ max-width:1100px; margin:0 auto; padding: 28px 18px 64px; }
 
     header{
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(6,23,17,.78), rgba(6,23,17,.35));
-      border-bottom: 1px solid rgba(216,177,90,.18);
+      padding:24px;
+      border-bottom:1px solid rgba(216,177,90,.3);
     }
-    .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      max-width:1100px;
-      margin:0 auto;
-      padding: 12px 18px;
-    }
+
     .brand{
-      display:flex;
-      flex-direction:column;
-      line-height:1.05;
-    }
-    .brand .name{
-      font-weight:200;
-      letter-spacing:6px;
       text-transform:uppercase;
+      letter-spacing:5px;
+      font-weight:200;
       font-size:14px;
-      white-space:nowrap;
-    }
-    .brand .accent{
-      font-family:"Great Vibes", cursive;
-      color: var(--gold);
-      font-size:26px;
-      margin-top:2px;
     }
 
-    .links{
-      display:flex;
-      flex-wrap:wrap;
-      gap: 10px;
-      justify-content:flex-end;
-      align-items:center;
-    }
-    .links a{
-      font-weight:300;
-      font-size:13px;
-      color: var(--muted);
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      transition: transform .15s ease, border-color .15s ease, background .15s ease, color .15s ease;
-    }
-    .links a:hover{
-      transform: translateY(-1px);
-      border-color: rgba(216,177,90,.35);
-      background: rgba(255,255,255,.03);
-      color: var(--text);
+    .accent{
+      font-family:"Great Vibes",cursive;
+      color:var(--gold);
+      font-size:32px;
+      margin-top:4px;
     }
 
-    section{ padding: 22px 0; scroll-margin-top: 88px; }
-
-    .hero{ padding-top: 46px; }
-    .card{
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, var(--panel), var(--panel2));
-      border: 1px solid rgba(216,177,90,.28);
-      box-shadow: var(--shadow);
-      padding: 34px 26px;
-      position: relative;
-      overflow:hidden;
-    }
-    .card:before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      border-radius: calc(var(--radius) + 2px);
-      border: 1px solid rgba(242,182,198,.18);
-      pointer-events:none;
+    main{
+      max-width:1100px;
+      margin:auto;
+      padding:40px 20px;
     }
 
-    .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      font-size:12px;
-      letter-spacing:3px;
-      text-transform:uppercase;
-      color: var(--muted);
+    h2{
+      font-family:"Great Vibes",cursive;
+      color:var(--gold);
+      font-size:42px;
+      margin-bottom:10px;
     }
-    .dot{
-      width:7px; height:7px;
-      border-radius:999px;
-      background: var(--pink);
-      box-shadow: 0 0 0 4px rgba(242,182,198,.10);
-    }
-    h1{
-      margin: 12px 0 10px;
-      font-weight:200;
-      font-size:44px;
-      letter-spacing:2px;
-      line-height:1.06;
-    }
-    @media (max-width: 520px){ h1{ font-size:38px; } }
-    .subtitle{
-      margin:0;
-      color: var(--muted);
-      font-weight:300;
+
+    p{
+      color:var(--muted);
+      max-width:700px;
       line-height:1.6;
-      max-width: 68ch;
-    }
-    .sigLine{
-      margin-top:16px;
-      display:flex;
-      align-items:center;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-    .sig{
-      font-family:"Great Vibes", cursive;
-      color: var(--gold);
-      font-size:34px;
-      line-height:1;
-    }
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 8px 12px;
-      border-radius:999px;
-      border: 1px solid rgba(216,177,90,.32);
-      background: rgba(255,255,255,.03);
-      color: var(--muted);
-      font-size:12.5px;
-      font-weight:300;
-    }
-
-    .ctaRow{
-      margin-top:20px;
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding: 11px 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(216,177,90,.45);
-      background: rgba(216,177,90,.10);
-      color: var(--text);
-      font-weight:300;
-      font-size:13px;
-      transition: transform .15s ease, background .15s ease, border-color .15s ease;
-    }
-    .btn:hover{
-      transform: translateY(-1px);
-      background: rgba(216,177,90,.14);
-      border-color: rgba(216,177,90,.62);
-    }
-    .btn.secondary{
-      background: rgba(242,182,198,.08);
-      border-color: rgba(242,182,198,.40);
-    }
-    .btn.secondary:hover{
-      background: rgba(242,182,198,.12);
-      border-color: rgba(242,182,198,.55);
-    }
-
-    .sectionCard{
-      border-radius: var(--radius);
-      border: 1px solid rgba(216,177,90,.22);
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
-      box-shadow: 0 18px 45px rgba(0,0,0,.35);
-      padding: 26px;
-    }
-    .sectionTitleRow{
-      display:flex;
-      justify-content:space-between;
-      align-items:baseline;
-      gap: 16px;
-      flex-wrap:wrap;
-      margin-bottom: 14px;
-    }
-    .sectionTitle{
-      font-family:"Great Vibes", cursive;
-      color: var(--gold);
-      font-size:40px;
-      line-height:1;
-      margin:0;
-    }
-    .sectionSub{
-      margin:0;
-      color: var(--muted);
-      font-weight:300;
-      max-width: 80ch;
-      line-height:1.6;
-      font-size:13.5px;
     }
 
     .grid{
       display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 10px;
-      margin-top: 16px;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:24px;
+      margin-top:30px;
     }
 
-    .tile{
-      grid-column: span 4;
-      border-radius: 18px;
-      border: 1px solid rgba(216,177,90,.20);
-      background: rgba(255,255,255,.02);
+    .card{
+      border:1px solid rgba(216,177,90,.3);
+      border-radius:18px;
       overflow:hidden;
-      box-shadow: 0 12px 28px rgba(0,0,0,.28);
-      transition: transform .15s ease, border-color .15s ease;
-      cursor: pointer;
-    }
-    .tile:hover{
-      transform: translateY(-2px);
-      border-color: rgba(216,177,90,.45);
+      background:rgba(255,255,255,.03);
     }
 
-    .media{
+    .card img{
       width:100%;
-      height: 230px;
-      display:block;
-      background:
-        radial-gradient(900px 260px at 20% 10%, rgba(242,182,198,.18), transparent 60%),
-        radial-gradient(900px 260px at 85% 20%, rgba(216,177,90,.16), transparent 60%),
-        linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.01));
-      position: relative;
-    }
-    .media img{
-      width:100%;
-      height:100%;
+      height:240px;
       object-fit:cover;
       display:block;
-      background: rgba(0,0,0,.18);
     }
 
-    .cap{
-      padding: 12px 12px 14px;
-      border-top: 1px solid rgba(216,177,90,.14);
+    .card-body{
+      padding:16px;
     }
-    .cap .t{
-      margin:0 0 6px;
+
+    .price{
+      color:var(--gold);
       font-weight:300;
-      letter-spacing:1px;
+      margin-top:6px;
+    }
+
+    footer{
+      margin-top:60px;
+      text-align:center;
+      color:var(--muted);
       font-size:13px;
-      text-transform:uppercase;
-      color: rgba(246,243,238,.92);
-    }
-    .cap .m{
-      margin:0;
-      color: var(--muted);
-      font-weight:300;
-      line-height:1.55;
-      font-size:13.5px;
-    }
-
-    @media (max-width: 950px){
-      .tile{ grid-column: span 6; }
-      .media{ height: 220px; }
-    }
-    @media (max-width: 560px){
-      .tile{ grid-column: span 12; }
-      .media{ height: 240px; }
-    }
-
-    .priceTag{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(216,177,90,.40);
-      background: rgba(216,177,90,.12);
-      color: var(--text);
-      font-weight:300;
-      font-size:12.5px;
-      letter-spacing:.5px;
-      white-space: nowrap;
-    }
-    .saleTop{
-      display:flex;
-      align-items:baseline;
-      justify-content:space-between;
-      gap: 10px;
-      margin-bottom: 6px;
-    }
-
-    .lightbox{
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.78);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 18px;
-      z-index: 999;
-    }
-    .lightbox.open{ display:flex; }
-    .lbCard{
-      width: min(980px, 100%);
-      border-radius: 18px;
-      border: 1px solid rgba(216,177,90,.35);
-      background: rgba(6,23,17,.65);
-      backdrop-filter: blur(10px);
-      overflow:hidden;
-      box-shadow: 0 30px 90px rgba(0,0,0,.65);
-    }
-    .lbImg{
-      width:100%;
-      max-height:72vh;
-      object-fit: contain;
-      display:block;
-      background: rgba(0,0,0,.25);
-    }
-    .lbCap{
-      padding: 14px 16px 16px;
-      border-top: 1px solid rgba(216,177,90,.18);
-    }
-    .lbCap .t{
-      margin:0 0 6px;
-      font-weight:300;
-      letter-spacing:1px;
-      text-transform:uppercase;
-      font-size:13px;
-    }
-    .lbCap .m{
-      margin:0;
-      color: var(--muted);
-      font-weight:300;
-      line-height:1.6;
-      font-size:13.5px;
-    }
-    .lbHint{
-      margin-top: 10px;
-      font-size: 12px;
-      color: rgba(246,243,238,.55);
-      font-weight: 300;
-    }
-
-    .blogGrid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 16px;
-    }
-    @media (max-width: 900px){ .blogGrid{ grid-template-columns: 1fr; } }
-    .blogCard{
-      border-radius: 18px;
-      border: 1px solid rgba(216,177,90,.20);
-      background: rgba(255,255,255,.02);
-      padding: 18px;
-    }
-    .blogMeta{
-      font-size: 12px;
-      color: var(--muted);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: 300;
-      margin-bottom: 8px;
-    }
-    .blogH{
-      margin: 0 0 8px;
-      font-weight: 300;
-      letter-spacing: 1px;
-      font-size: 15px;
-      text-transform: uppercase;
-      color: rgba(246,243,238,.92);
-    }
-    .blogP{
-      margin: 0;
-      color: var(--muted);
-      font-weight: 300;
-      line-height: 1.65;
-      font-size: 13.5px;
-    }
-
-    footer{ padding: 26px 0 8px; color: var(--muted); font-weight:300; text-align:center; }
-    .footerCard{
-      border-radius: var(--radius);
-      border: 1px solid rgba(216,177,90,.22);
-      background: rgba(255,255,255,.02);
-      padding: 18px;
-    }
-    .small{
-      font-size:12px;
-      color: rgba(246,243,238,.55);
-      margin-top: 12px;
     }
   </style>
 </head>
 
 <body>
-  <div class="pattern"></div>
 
-  <header>
-    <div class="nav">
-      <div class="brand">
-        <div class="name">Rebecca McDonnell</div>
-        <div class="accent">Collected with intention</div>
-      </div>
+<header>
+  <div class="brand">Rebecca McDonnell</div>
+  <div class="accent">Collected with intention</div>
+</header>
 
-      <nav class="links" aria-label="Primary">
-        <a href="#sale">Rocks for Sale</a>
-        <a href="#landscapes">Landscapes</a>
-        <a href="#finds">Finds</a>
-        <a href="#home">Home & Cats</a>
-        <a href="#blog">Blog</a>
-        <a href="contact.html">Contact</a>
-        <a href="https://instagram.com/rock.girl.cat.mom" target="_blank" rel="noopener">Instagram</a>
-      </nav>
-    </div>
-  </header>
+<main>
 
-  <main class="wrap">
+  <h2>Rocks for Sale</h2>
+  <p>Hand-collected stones and natural finds. Message me to purchase.</p>
 
-    <section class="hero" id="top">
-      <div class="card">
-        <div class="kicker"><span class="dot"></span> elegant • curated • collected</div>
-        <h1>Rebecca McDonnell</h1>
-        <p class="subtitle">
-          Stones, crystals, beach finds, sunsets, views — and a cozy home life with cats.
-          Forest green, blush, and champagne gold.
-        </p>
+  <div class="grid">
 
-        <div class="sigLine">
-          <div class="sig">welcome</div>
-          <div class="pill">Rocks for sale is featured first</div>
-          <div class="pill">Tap any image to enlarge</div>
-        </div>
-
-        <div class="ctaRow">
-          <a class="btn" href="#sale">Shop Rocks</a>
-          <a class="btn secondary" href="#blog">Read Blog</a>
-          <a class="btn secondary" href="#home">Home & Cats</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ROCKS FOR SALE -->
-    <section id="sale">
-      <div class="sectionCard">
-        <div class="sectionTitleRow">
-          <h2 class="sectionTitle">Rocks for Sale</h2>
-          <p class="sectionSub">First release — message to purchase via Contact or Instagram.</p>
-        </div>
-
-        <div class="grid">
-          <!-- 1) White - $8 -->
-          <div class="tile"
-               data-full="assets/sale/white-8.jpg"
-               data-title="White Stone"
-               data-meta="$8 • polished beach find">
-            <div class="media">
-              <img src="assets/sale/white-8.jpg" alt="White stone for sale">
-            </div>
-            <div class="cap">
-              <div class="saleTop">
-                <p class="t" style="margin:0;">White Stone</p>
-                <span class="priceTag">$8</span>
-              </div>
-              <p class="m">Smooth white stone with natural dark inclusions.</p>
-            </div>
-          </div>
-
-          <!-- 2) Orange - $5 -->
-          <div class="tile"
-               data-full="assets/sale/orange-5.jpg"
-               data-title="Orange Stone"
-               data-meta="$5 • natural beach find">
-            <div class="media">
-              <img src="assets/sale/orange-5.jpg" alt="Orange stone for sale">
-            </div>
-            <div class="cap">
-              <div class="saleTop">
-                <p class="t" style="margin:0;">Orange Stone</p>
-                <span class="priceTag">$5</span>
-              </div>
-              <p class="m">Warm orange tones with smoky dark patterning.</p>
-            </div>
-          </div>
-
-          <!-- 3) Petrified Wood - $15 -->
-          <div class="tile"
-               data-full="assets/sale/petrified-wood-15.jpg"
-               data-title="Petrified Wood"
-               data-meta="$15 • petrified wood">
-            <div class="media">
-              <img src="assets/sale/petrified-wood-15.jpg" alt="Petrified wood for sale">
-            </div>
-            <div class="cap">
-              <div class="saleTop">
-                <p class="t" style="margin:0;">Petrified Wood</p>
-                <span class="priceTag">$15</span>
-              </div>
-              <p class="m">Petrified wood piece with beautiful natural banding.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="ctaRow">
-          <a class="btn" href="contact.html">Inquire / Buy</a>
-          <a class="btn secondary" href="https://instagram.com/rock.girl.cat.mom" target="_blank" rel="noopener">DM on Instagram</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- LANDSCAPES -->
-    <section id="landscapes">
-      <div class="sectionCard">
-        <div class="sectionTitleRow">
-          <h2 class="sectionTitle">Landscapes</h2>
-          <p class="sectionSub">Sunsets, water, views, trails — separate from rocks.</p>
-        </div>
-
-        <div class="grid">
-          <div class="tile" data-full="" data-title="Landscape 01" data-meta="Location • optional date">
-            <div class="media"></div>
-            <div class="cap"><p class="t">Landscape 01</p><p class="m">Add image</p></div>
-          </div>
-          <div class="tile" data-full="" data-title="Landscape 02" data-meta="Location • optional date">
-            <div class="media"></div>
-            <div class="cap"><p class="t">Landscape 02</p><p class="m">Add image</p></div>
-          </div>
-          <div class="tile" data-full="" data-title="Landscape 03" data-meta="Location • optional date">
-            <div class="media"></div>
-            <div class="cap"><p class="t">Landscape 03</p><p class="m">Add image</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FINDS -->
-    <section id="finds">
-      <div class="sectionCard">
-        <div class="sectionTitleRow">
-          <h2 class="sectionTitle">Finds</h2>
-          <p class="sectionSub">Personal collection — separate from the shop.</p>
-        </div>
-
-        <div class="grid">
-          <div class="tile" data-full="" data-title="Find 01" data-meta="Caption • optional location">
-            <div class="media"></div>
-            <div class="cap"><p class="t">Find 01</p><p class="m">Add image</p></div>
-          </div>
-          <div class="tile" data-full="" data-title="Find 02" data-meta="Caption • optional location">
-            <div class="media"></div>
-            <div class="cap"><p class="t">Find 02</p><p class="m">Add image</p></div>
-          </div>
-          <div class="tile" data-full="" data-title="Find 03" data-meta="Caption • optional location">
-            <div class="media"></div>
-            <div class="cap"><p class="t">Find 03</p><p class="m">Add image</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- HOME & CATS -->
-    <section id="home">
-      <div class="sectionCard">
-        <div class="sectionTitleRow">
-          <h2 class="sectionTitle">Home & Cats</h2>
-          <p class="sectionSub">Cozy home life and the cat crew.</p>
-        </div>
-
-        <div class="grid">
-          <div class="tile" data-full="" data-title="Home 01" data-meta="Cat names • optional note">
-            <div class="media"></div>
-            <div class="cap"><p class="t">Home 01</p><p class="m">Add image</p></div>
-          </div>
-          <div class="tile" data-full="" data-title="Home 02" data-meta="Cat names • optional note">
-            <div class="media"></div>
-            <div class="cap"><p class="t">Home 02</p><p class="m">Add image</p></div>
-          </div>
-          <div class="tile" data-full="" data-title="Home 03" data-meta="Cat names • optional note">
-            <div class="media"></div>
-            <div class="cap"><p class="t">Home 03</p><p class="m">Add image</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- BLOG -->
-    <section id="blog">
-      <div class="sectionCard">
-        <div class="sectionTitleRow">
-          <h2 class="sectionTitle">Blog</h2>
-          <p class="sectionSub">A calm journal space for finds, places, and little stories.</p>
-        </div>
-
-        <div class="ctaRow">
-          <a class="btn" href="blog.html">Open Blog Page</a>
-          <a class="btn secondary" href="contact.html">Ask a question</a>
-        </div>
-
-        <div class="blogGrid">
-          <div class="blogCard">
-            <div class="blogMeta">Sample post</div>
-            <div class="blogH">What I’m collecting right now</div>
-            <div class="blogP">Replace this with your first real post when you’re ready.</div>
-          </div>
-
-          <div class="blogCard">
-            <div class="blogMeta">Ideas</div>
-            <div class="blogH">Three posts I want to write</div>
-            <div class="blogP">
-              • Best time to go hunting (tide/daylight)<br>
-              • My simple “what is it?” checklist<br>
-              • Favorite Niagara spots for views
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <div class="footerCard">
-        <div style="font-family:'Great Vibes', cursive; color: var(--gold); font-size: 34px; line-height: 1;">
-          thank you for visiting
-        </div>
-        <div class="small">© <span id="y"></span> Rebecca McDonnell • Built on GitHub Pages</div>
-      </div>
-    </footer>
-
-  </main>
-
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <div class="lbCard" role="dialog" aria-modal="true" aria-label="Image preview">
-      <img class="lbImg" id="lbImg" alt="Preview">
-      <div class="lbCap">
-        <p class="t" id="lbTitle"></p>
-        <p class="m" id="lbMeta"></p>
-        <div class="lbHint">Tap outside the image (or press Esc) to close.</div>
+    <div class="card">
+      <img src="assets/sale/PXL_20260106_034847374.jpg" alt="White stone">
+      <div class="card-body">
+        <strong>White Stone</strong>
+        <div class="price">$8</div>
       </div>
     </div>
+
+    <div class="card">
+      <img src="assets/sale/PXL_20260106_035459747.MP.jpg" alt="Orange stone">
+      <div class="card-body">
+        <strong>Orange Stone</strong>
+        <div class="price">$5</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="assets/sale/PXL_20260106_035836908.MP.jpg" alt="Petrified wood">
+      <div class="card-body">
+        <strong>Petrified Wood</strong>
+        <div class="price">$15</div>
+      </div>
+    </div>
+
   </div>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
+  <footer>
+    © <span id="year"></span> Rebecca McDonnell  
+    <br>
+    <a href="https://rebecca-mcdonnell.github.io" style="color:var(--gold)">rebecca-mcdonnell.github.io</a>
+  </footer>
 
-    const lb = document.getElementById("lightbox");
-    const lbImg = document.getElementById("lbImg");
-    const lbTitle = document.getElementById("lbTitle");
-    const lbMeta = document.getElementById("lbMeta");
+</main>
 
-    function openLB(src, title, meta){
-      if(!src) return;
-      lbImg.src = src;
-      lbTitle.textContent = title || "";
-      lbMeta.textContent = meta || "";
-      lb.classList.add("open");
-      lb.setAttribute("aria-hidden", "false");
-    }
-    function closeLB(){
-      lb.classList.remove("open");
-      lb.setAttribute("aria-hidden", "true");
-      lbImg.src = "";
-    }
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
-    document.querySelectorAll(".tile").forEach(card => {
-      card.addEventListener("click", () => {
-        const img = card.querySelector("img");
-        const hasImg = img && img.complete && img.naturalWidth > 0;
-        const full = card.dataset.full || (hasImg ? img.src : "");
-        if(!full) return;
-        openLB(full, card.dataset.title, card.dataset.meta);
-      });
-    });
-
-    lb.addEventListener("click", (e) => { if (e.target === lb) closeLB(); });
-    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLB(); });
-  </script>
 </body>
 </html>
