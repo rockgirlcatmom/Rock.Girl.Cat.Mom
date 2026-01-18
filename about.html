@@ -1,28 +1,80 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>About</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About • Rebecca McDonnell</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header>
-  <h1>About Me</h1>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="links.html">Links</a>
-  </nav>
-</header>
-
-<div class="container">
-  <div class="card">
-  </div>Hi, I’m Rebecca — a rock-loving, cat-obsessed nature wanderer based in Ontario.
-I spend my time beach-combing, rock-hounding, and finding small moments of joy in the everyday. From fossilized wood and agates to quiet shoreline mornings, this space is where I share what I find, what I learn, and what makes me smile.
-When I’m not outside, I’m usually at home with my cats (Olive, Puzzle, Finn, Nala, and Smokey), documenting finds, or working on creative projects.
-This site is a growing collection of rocks, stories, and slow moments — welcome 🤍
+<div class="nav">
+  <div class="nav-inner">
+    <div class="brand"><span class="dot"></span><span>Rebecca McDonnell</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="blog.html">Blog</a>
+      <a href="links.html">Links</a>
+    </div>
+  </div>
 </div>
 
+<div class="container">
+  <div class="hero">
+    <div class="kicker"><span class="spark"></span>About me</div>
+    <h1>Hi, I’m Rebecca.</h1>
+    <p class="lead">
+      I’m a rock-hounding, cat-loving, creative human who loves turning everyday moments
+      into something beautiful—whether that’s a beach find, a cozy home project, or a good story.
+    </p>
+  </div>
+
+  <div class="split">
+    <div class="panel">
+      <h2>My vibe</h2>
+      <p>
+        Clear-water beaches, calm days, and little adventures. I collect stones, make content,
+        and I’m building a simple space online to share it all.
+      </p>
+
+      <div class="section">
+        <h2>Right now</h2>
+        <div class="list">
+          <div class="item"><strong>Rock-hounding & reels</strong><span>Finding, filming, identifying, sharing.</span></div>
+          <div class="item"><strong>My cats</strong><span>Olive, Puzzle, Finn, Nala, Smokey (and Caesar forever).</span></div>
+          <div class="item"><strong>Life + learning</strong><span>Organizing, improving, and creating.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Find me</h2>
+      <p class="small">Instagram: <strong>@rock.girl.cat.mom</strong></p>
+      <div class="btnrow">
+        <a class="btn primary" href="links.html">My links</a>
+        <a class="btn ghost" href="gallery.html">View gallery</a>
+      </div>
+
+      <div class="section">
+        <h2>Quick facts</h2>
+        <div class="list">
+          <div class="item"><strong>Colours</strong><span>Pink • Green • Grey</span></div>
+          <div class="item"><strong>Content</strong><span>Rocks, cats, cozy life</span></div>
+          <div class="item"><strong>Location</strong><span>Ontario, Canada</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    © <span id="y"></span> Rebecca McDonnell
+  </div>
+</div>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
