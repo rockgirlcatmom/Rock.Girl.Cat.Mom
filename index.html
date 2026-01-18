@@ -1,299 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rebecca McDonnell | Rock Girl Cat Mom</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="Rebecca McDonnell’s personal website featuring rock collecting, fossil finds, creative projects, and cat mom life." />
-  <meta name="author" content="Rebecca McDonnell" />
-  <meta name="keywords" content="rocks, fossils, petrified wood, geology, cat mom, creative projects, rockgirlcatmom" />
+<title>Rebecca McDonnell | Rock Girl Cat Mom</title>
 
-  <style>
-    :root{
-      --bg: #0b1020;
-      --card: rgba(255,255,255,0.08);
-      --text: rgba(255,255,255,0.92);
-      --muted: rgba(255,255,255,0.72);
-      --line: rgba(255,255,255,0.14);
-      --accent: #7dd3fc;
-      --accent2:#a78bfa;
-      --shadow: 0 18px 40px rgba(0,0,0,0.35);
-      --radius: 18px;
-      --max: 980px;
-      --pad: 18px;
-    }
+<meta name="description" content="Rebecca McDonnell’s personal website featuring rock collecting, fossils, creative projects, and cat mom life.">
+<meta name="author" content="Rebecca McDonnell">
 
-    *{ box-sizing:border-box; }
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      color:var(--text);
-      background:
-        radial-gradient(900px 600px at 10% 10%, rgba(125,211,252,0.22), transparent 55%),
-        radial-gradient(900px 600px at 90% 20%, rgba(167,139,250,0.20), transparent 60%),
-        radial-gradient(1000px 700px at 40% 90%, rgba(34,197,94,0.10), transparent 60%),
-        var(--bg);
-      min-height:100vh;
-    }
+<style>
+:root{
+  --pink:#f4a3c0;
+  --green:#7fbf9b;
+  --grey:#e5e5e5;
+  --dark:#121212;
+}
 
-    a{ color:inherit; text-decoration:none; }
-    .wrap{ max-width:var(--max); margin:0 auto; padding: 22px var(--pad) 60px; }
+*{box-sizing:border-box;}
 
-    /* Top bar */
-    .top{
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(10px);
-      background: rgba(11,16,32,0.55);
-      border-bottom: 1px solid var(--line);
-    }
-    .top .inner{
-      max-width:var(--max);
-      margin:0 auto;
-      padding: 12px var(--pad);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-weight:700;
-      letter-spacing:0.2px;
-    }
-    .dot{
-      width:12px; height:12px; border-radius:999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 4px rgba(125,211,252,0.15);
-    }
-    nav{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-    nav a{
-      padding: 8px 12px;
-      border: 1px solid transparent;
-      border-radius: 999px;
-      color: var(--muted);
-      transition: 180ms ease;
-      font-size: 14px;
-    }
-    nav a:hover{
-      border-color: var(--line);
-      color: var(--text);
-      background: rgba(255,255,255,0.06);
-    }
+body{
+  margin:0;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg,#1a1a1a,#0e0e0e);
+  color:var(--grey);
+}
 
-    /* Hero */
-    .hero{
-      margin-top: 18px;
-      padding: 26px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--card);
-      box-shadow: var(--shadow);
-    }
-    .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      color: var(--muted);
-      background: rgba(255,255,255,0.04);
-      font-size: 14px;
-    }
-    .kicker span{
-      width:8px; height:8px; border-radius:999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 4px rgba(34,197,94,0.18);
-    }
-    h1{
-      margin: 14px 0 8px;
-      font-size: clamp(28px, 5vw, 44px);
-      line-height: 1.08;
-      letter-spacing: -0.02em;
-    }
-    .sub{
-      margin: 0 0 18px;
-      color: var(--muted);
-      font-size: 16px;
-      max-width: 70ch;
-      line-height: 1.55;
-    }
-    .cta{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top: 14px;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding: 10px 14px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.06);
-      color: var(--text);
-      font-weight: 600;
-      transition: 180ms ease;
-    }
-    .btn:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,0.10);
-    }
-    .btn.primary{
-      border-color: rgba(125,211,252,0.45);
-      background: linear-gradient(135deg, rgba(125,211,252,0.18), rgba(167,139,250,0.14));
-    }
+a{color:var(--pink); text-decoration:none;}
 
-    /* Sections */
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 14px;
-      margin-top: 14px;
-    }
-    .card{
-      grid-column: span 6;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,0.06);
-      padding: 18px;
-    }
-    .card h2{
-      margin: 0 0 8px;
-      font-size: 18px;
-      letter-spacing: -0.01em;
-    }
-    .card p{
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.55;
-      font-size: 15px;
-    }
-    .list{
-      margin: 12px 0 0;
-      padding: 0;
-      list-style:none;
-      display:grid;
-      gap:10px;
-    }
-    .list li{
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      background: rgba(0,0,0,0.10);
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.4;
-    }
+header{
+  position:sticky;
+  top:0;
+  background:rgba(18,18,18,0.9);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
 
-    /* Footer */
-    footer{
-      margin-top: 26px;
-      color: rgba(255,255,255,0.55);
-      font-size: 13px;
-      text-align:center;
-    }
+.navwrap{
+  max-width:1000px;
+  margin:auto;
+  padding:14px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
-    /* Responsive */
-    @media (max-width: 720px){
-      .card{ grid-column: span 12; }
-      nav{ justify-content:flex-start; }
-      .top .inner{ align-items:flex-start; flex-direction:column; }
-    }
-  </style>
+.brand{
+  font-weight:600;
+  letter-spacing:1px;
+  color:white;
+}
+
+nav a{
+  margin-left:14px;
+  font-size:14px;
+  color:var(--grey);
+}
+
+nav a:hover{color:var(--pink);}
+
+main{
+  max-width:1000px;
+  margin:auto;
+  padding:30px 20px 60px;
+}
+
+.hero{
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:18px;
+  padding:28px;
+  background:rgba(255,255,255,0.04);
+}
+
+.hero h1{
+  font-size:42px;
+  font-weight:600;
+  margin:0 0 10px;
+  background:linear-gradient(90deg,var(--pink),var(--green));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero p{
+  max-width:600px;
+  line-height:1.6;
+}
+
+.section{
+  margin-top:24px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:18px;
+}
+
+.card{
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:18px;
+  padding:20px;
+  background:rgba(255,255,255,0.05);
+}
+
+.card h2{
+  margin-top:0;
+  font-size:18px;
+  color:var(--green);
+}
+
+footer{
+  margin-top:40px;
+  text-align:center;
+  font-size:13px;
+  color:rgba(255,255,255,0.5);
+}
+</style>
 </head>
 
 <body>
-  <header class="top">
-    <div class="inner">
-      <div class="brand">
-        <div class="dot"></div>
-        <div>Rebecca McDonnell</div>
-      </div>
 
-      <nav>
-        <a href="#home">Home</a>
-        <a href="#rocks">Rocks</a>
-        <a href="#projects">Projects</a>
-        <a href="#cats">Cats</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+<header>
+  <div class="navwrap">
+    <div class="brand">Rebecca McDonnell</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#rocks">Rocks</a>
+      <a href="#projects">Projects</a>
+      <a href="#cats">Cats</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-  <main class="wrap" id="home">
-    <section class="hero">
-      <div class="kicker"><span></span> Live on GitHub Pages</div>
-      <h1>Rock Girl. Cat Mom. Always creating.</h1>
-      <p class="sub">
-        Welcome to my little corner of the internet — rock finds, fossils, petrified wood, DIY projects, and the day-to-day chaos (and cuteness) of cats.
-      </p>
+<main id="home">
 
-      <div class="cta">
-        <a class="btn primary" href="#rocks">See Rock Finds</a>
-        <a class="btn" href="#projects">See Projects</a>
-        <a class="btn" href="#contact">Contact</a>
-      </div>
-    </section>
+<section class="hero">
+<h1>Rock Girl. Cat Mom. Always Creating.</h1>
+<p>
+Welcome to my space — where fossils, petrified wood, creativity, and cats all somehow coexist beautifully. Inspired by curiosity, colour, and a little Wicked magic.
+</p>
+</section>
 
-    <section class="grid" style="margin-top:18px;">
-      <div class="card" id="rocks">
-        <h2>🪨 Rocks & Fossils</h2>
-        <p>My favorite finds and what I’m learning about them (petrified wood, agates, jasper, coral, and more).</p>
-        <ul class="list">
-          <li>Coming soon: a gallery + short stories behind each find.</li>
-          <li>Coming soon: “How I clean / polish / photograph rocks.”</li>
-        </ul>
-      </div>
+<section class="section">
 
-      <div class="card" id="projects">
-        <h2>🧩 Creative Projects</h2>
-        <p>DIY, décor, and whatever I’m building this month.</p>
-        <ul class="list">
-          <li>Ideas: mosaic art, thrift flips, display shelves, accent wall.</li>
-          <li>We can add before/after photos here next.</li>
-        </ul>
-      </div>
+<div class="card" id="rocks">
+<h2>🪨 Rocks & Fossils</h2>
+<p>My favorite finds, stories behind them, and what I’m learning along the way.</p>
+</div>
 
-      <div class="card" id="cats">
-        <h2>🐾 Cats</h2>
-        <p>Finn, Olive, Nala, Puzzle — and Smokey (bonus cat). A rotating cast of adorable troublemakers.</p>
-        <ul class="list">
-          <li>Coming soon: “Cat corner” with pics + funny notes.</li>
-          <li>Coming soon: how I set up feeding stations & litter zones.</li>
-        </ul>
-      </div>
+<div class="card" id="projects">
+<h2>🎨 Creative Projects</h2>
+<p>DIY, décor, mosaics, and whatever I’m currently building or restoring.</p>
+</div>
 
-      <div class="card" id="contact">
-        <h2>📬 Contact</h2>
-        <p>Add your Instagram, email, or links here. (We’ll plug them in when you’re ready.)</p>
-        <ul class="list">
-          <li>Instagram: <em>add your handle here</em></li>
-          <li>Email: <em>add your email here</em></li>
-        </ul>
-      </div>
-    </section>
+<div class="card" id="cats">
+<h2>🐾 Cats</h2>
+<p>Finn, Olive, Nala, Puzzle, and Smokey — the true rulers of this household.</p>
+</div>
 
-    <footer>
-      © <span id="year"></span> Rebecca McDonnell • Built with GitHub Pages
-    </footer>
-  </main>
+<div class="card" id="contact">
+<h2>📬 Contact</h2>
+<p>
+Instagram: <a href="https://instagram.com/rock.girl.cat.mom" target="_blank">@rock.girl.cat.mom</a>
+</p>
+<p>
+Website: <a href="https://rockgirlcatmom.github.io/rebeccamcdonnell.github.io/" target="_blank">Visit My Site</a>
+</p>
+</div>
 
-  <script>
-    // auto-updates the year in the footer
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+</section>
+
+<footer>
+© <span id="year"></span> Rebecca McDonnell • Built with GitHub Pages
+</footer>
+
+</main>
+
+<script>
+document.getElementById("year").textContent=new Date().getFullYear();
+</script>
+
 </body>
 </html>
