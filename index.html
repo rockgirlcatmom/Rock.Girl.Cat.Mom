@@ -1,161 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Rebecca McDonnell</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Allura&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --green:#0b2a1f;
+      --green-dark:#061711;
+      --gold:#d8b15a;
+      --pink:#f2b6c6;
+      --text:#f6f3ee;
+      --muted:rgba(246,243,238,.7);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,sans-serif;
+      background:linear-gradient(135deg,var(--green),var(--green-dark));
+      color:var(--text);
+    }
+
+    header{
+      padding:24px;
+      border-bottom:1px solid rgba(216,177,90,.3);
+    }
+
+    .brand{
+      text-transform:uppercase;
+      letter-spacing:5px;
+      font-weight:200;
+      font-size:14px;
+    }
+
+    .accent{
+      font-family:"Great Vibes",cursive;
+      color:var(--gold);
+      font-size:32px;
+      margin-top:4px;
+    }
+
+    main{
+      max-width:1100px;
+      margin:auto;
+      padding:40px 20px;
+    }
+
+    h2{
+      font-family:"Great Vibes",cursive;
+      color:var(--gold);
+      font-size:42px;
+      margin-bottom:10px;
+    }
+
+    p{
+      color:var(--muted);
+      max-width:700px;
+      line-height:1.6;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:24px;
+      margin-top:30px;
+    }
+
+    .card{
+      border:1px solid rgba(216,177,90,.3);
+      border-radius:18px;
+      overflow:hidden;
+      background:rgba(255,255,255,.03);
+    }
+
+    .card img{
+      width:100%;
+      height:240px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .card-body{
+      padding:16px;
+    }
+
+    .price{
+      color:var(--gold);
+      font-weight:300;
+      margin-top:6px;
+    }
+
+    footer{
+      margin-top:60px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+    }
+  </style>
 </head>
 
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Home">
-        <span class="brand-script">Rebecca</span>
-        <span class="brand-serif">McDonnell</span>
-      </a>
 
-      <nav class="nav" aria-label="Primary">
-        <a class="nav-link active" href="index.html">Home</a>
-        <a class="nav-link" href="about.html">About</a>
-        <a class="nav-link" href="gallery.html">Gallery</a>
-        <a class="nav-link" href="shop.html">Stones for Sale</a>
-        <a class="nav-link" href="blog.html">Blog</a>
-        <a class="nav-link" href="links.html">Links</a>
-        <a class="nav-link" href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+<header>
+  <div class="brand">Rebecca McDonnell</div>
+  <div class="accent">Collected with intention</div>
+</header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-left">
-          <p class="kicker">Collected with intention • Niagara Region</p>
-          <h1 class="hero-title">
-            Rockhounding, vintage finds,<br />
-            and a cat-mom life — curated with heart.
-          </h1>
-          <p class="hero-subtitle">
-            I’m Rebecca — I recently moved to <strong>St. Catharines</strong> and I’m so excited to explore the Niagara region.
-            Here you’ll find my favorite finds, stories, and stones I’ve collected along the way.
-          </p>
+<main>
 
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="shop.html">Shop Stones</a>
-            <a class="btn btn-ghost" href="gallery.html">View Gallery</a>
-          </div>
+  <h2>Rocks for Sale</h2>
+  <p>Hand-collected stones and natural finds. Message me to purchase.</p>
 
-          <div class="hero-note">
-            <span class="dot"></span>
-            <span>Style: forest green • gold • soft pink — simple, modern, expensive</span>
-          </div>
-        </div>
+  <div class="grid">
 
-        <div class="hero-right">
-          <div class="card card-highlight">
-            <h2 class="card-title">Newest Stones for Sale</h2>
-            <p class="card-text">
-              Three new pieces are live — with better descriptions and the correct order.
-            </p>
-
-            <div class="mini-grid">
-              <a class="mini-item" href="shop.html#orange">
-                <span class="mini-tag">🧡</span>
-                <span class="mini-name">Orange Stone</span>
-                <span class="mini-price">$5</span>
-              </a>
-
-              <a class="mini-item" href="shop.html#petrified">
-                <span class="mini-tag">🌳</span>
-                <span class="mini-name">Petrified Wood</span>
-                <span class="mini-price">$15</span>
-              </a>
-
-              <a class="mini-item" href="shop.html#white">
-                <span class="mini-tag">🤍</span>
-                <span class="mini-name">White Stone</span>
-                <span class="mini-price">$8</span>
-              </a>
-            </div>
-
-            <div class="card-line"></div>
-
-            <p class="small">
-              Instagram: <a class="link" href="https://instagram.com/rock.girl.cat.mom" target="_blank" rel="noopener">rock.girl.cat.mom</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2 class="section-title">A little corner of my world</h2>
-          <p class="section-subtitle">Rocks, reels, and real life — clean, curated, and a little playful.</p>
-        </div>
-
-        <div class="grid-3">
-          <div class="card">
-            <h3 class="card-title">Rockhounding</h3>
-            <p class="card-text">
-              Beach walks, gravel pits, surprise finds — and learning to identify what I bring home.
-            </p>
-            <a class="link" href="gallery.html">Browse the gallery →</a>
-          </div>
-
-          <div class="card">
-            <h3 class="card-title">Stones for Sale</h3>
-            <p class="card-text">
-              Small curated drops — photographed honestly, priced simply, shipped carefully.
-            </p>
-            <a class="link" href="shop.html">See stones for sale →</a>
-          </div>
-
-          <div class="card">
-            <h3 class="card-title">Blog</h3>
-            <p class="card-text">
-              Quick notes: what I’m collecting, where I’m going, and what I’m learning.
-            </p>
-            <a class="link" href="blog.html">Read the blog →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-soft">
-      <div class="container">
-        <div class="banner">
-          <div>
-            <h2 class="banner-title">Want the easiest way to follow along?</h2>
-            <p class="banner-text">
-              My newest finds and videos go up on Instagram first.
-            </p>
-          </div>
-          <a class="btn btn-primary" href="https://instagram.com/rock.girl.cat.mom" target="_blank" rel="noopener">Open Instagram</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-left">
-        <span class="footer-brand">Rebecca McDonnell</span>
-        <span class="footer-sep">•</span>
-        <a class="link" href="contact.html">Contact</a>
-      </div>
-
-      <div class="footer-right">
-        <a class="link" href="https://instagram.com/rock.girl.cat.mom" target="_blank" rel="noopener">Instagram</a>
-        <span class="footer-sep">•</span>
-        <a class="link" href="https://rebecca-mcdonnell.github.io" target="_blank" rel="noopener">Website</a>
+    <div class="card">
+      <img src="assets/sale/PXL_20260106_034847374.jpg" alt="White stone">
+      <div class="card-body">
+        <strong>White Stone</strong>
+        <div class="price">$8</div>
       </div>
     </div>
+
+    <div class="card">
+      <img src="assets/sale/PXL_20260106_035459747.MP.jpg" alt="Orange stone">
+      <div class="card-body">
+        <strong>Orange Stone</strong>
+        <div class="price">$5</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="assets/sale/PXL_20260106_035836908.MP.jpg" alt="Petrified wood">
+      <div class="card-body">
+        <strong>Petrified Wood</strong>
+        <div class="price">$15</div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    © <span id="year"></span> Rebecca McDonnell  
+    <br>
+    <a href="https://rebecca-mcdonnell.github.io" style="color:var(--gold)">rebecca-mcdonnell.github.io</a>
   </footer>
+
+</main>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 </body>
-</html>
+                        </html>
