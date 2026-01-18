@@ -3,404 +3,168 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rockhound Gallery</title>
-  <style>
-    :root{
-      --bg:#0b0d10;
-      --card:#131823;
-      --text:#e9eef6;
-      --muted:#a7b2c3;
-      --border:rgba(255,255,255,.10);
-      --pill:#1f2a3a;
-      --pillActive:#2f69ff;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 16px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: radial-gradient(1200px 600px at 20% -10%, rgba(47,105,255,.25), transparent 60%),
-                  radial-gradient(900px 500px at 90% 0%, rgba(255,166,0,.18), transparent 55%),
-                  var(--bg);
-      color:var(--text);
-    }
-    header{
-      padding:28px 18px 10px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    h1{
-      margin:0 0 6px;
-      font-size: clamp(22px, 3vw, 34px);
-      letter-spacing: .2px;
-    }
-    .sub{
-      margin:0;
-      color:var(--muted);
-      line-height:1.5;
-    }
+  <title>Gallery • Rebecca McDonnell</title>
+  <link rel="stylesheet" href="style.css?v=5">
 
-    .toolbar{
-      max-width:1100px;
-      margin: 16px auto 0;
-      padding: 0 18px 12px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
+  <style>
+    /* Gallery-specific styles using your new theme variables */
+    .filters{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top: 16px;
     }
-    .pill{
-      border:1px solid var(--border);
-      background: var(--pill);
-      color: var(--text);
-      padding: 8px 12px;
+    .chip{
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      padding: 8px 14px;
       border-radius: 999px;
-      cursor:pointer;
-      font-size: 14px;
-      user-select:none;
-      transition: transform .08s ease, background .15s ease;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.16);
+      color: var(--muted);
+      cursor: pointer;
+      user-select: none;
     }
-    .pill:hover{ transform: translateY(-1px); }
-    .pill[aria-pressed="true"]{
-      background: rgba(47,105,255,.22);
-      border-color: rgba(47,105,255,.45);
+    .chip.active{
+      color: var(--text);
+      border-color: rgba(184,148,59,.55);
+      background: rgba(184,148,59,.10);
+      box-shadow: 0 12px 26px rgba(19,37,29,.10);
     }
 
     .grid{
-      max-width:1100px;
-      margin:0 auto;
-      padding: 14px 18px 40px;
+      margin-top: 18px;
       display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap:14px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
     }
+    @media (max-width: 920px){ .grid{grid-template-columns: repeat(2, 1fr);} }
+    @media (max-width: 520px){ .grid{grid-template-columns: 1fr;} }
+
     .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-      border: 1px solid var(--border);
+      border: 1px solid var(--line);
       border-radius: var(--radius);
-      overflow:hidden;
+      overflow: hidden;
+      background: rgba(255,255,255,.30);
       box-shadow: var(--shadow);
-      display:flex;
-      flex-direction:column;
-      min-height: 280px;
     }
     .thumb{
-      position:relative;
-      aspect-ratio: 4/3;
-      background: #0f141d;
-      overflow:hidden;
-    }
-    .thumb img{
-      width:100%;
-      height:100%;
+      width: 100%;
+      aspect-ratio: 4 / 3;
       object-fit: cover;
       display:block;
-      transform: scale(1.02);
-      transition: transform .25s ease;
-      cursor:pointer;
-    }
-    .thumb:hover img{ transform: scale(1.06); }
-    .tagRow{
-      position:absolute;
-      left:10px;
-      bottom:10px;
-      display:flex;
-      gap:6px;
-      flex-wrap:wrap;
-    }
-    .tag{
-      font-size:12px;
-      padding: 5px 8px;
-      border-radius:999px;
-      background: rgba(0,0,0,.45);
-      border:1px solid rgba(255,255,255,.16);
-      backdrop-filter: blur(6px);
-    }
-
-    .content{
-      padding: 12px 12px 14px;
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-    }
-    .title{
-      font-weight: 700;
-      letter-spacing: .2px;
+      background: rgba(19,37,29,.06);
     }
     .meta{
-      color:var(--muted);
-      font-size: 13px;
-      line-height:1.45;
+      padding: 12px 14px 14px;
     }
-    .notes{
-      margin-top: 6px;
-      font-size: 13px;
-      color:#d6deea;
-      line-height:1.45;
+    .meta h3{
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 20px;
+      margin: 0 0 6px;
     }
-
-    /* Lightbox */
-    .lightbox{
-      position:fixed;
-      inset:0;
-      background: rgba(0,0,0,.78);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      padding: 18px;
-      z-index: 999;
-    }
-    .lightbox[aria-hidden="false"]{ display:flex; }
-    .lbInner{
-      width:min(1100px, 100%);
-      background: rgba(16,20,28,.9);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 18px;
-      overflow:hidden;
-      box-shadow: 0 18px 70px rgba(0,0,0,.55);
-    }
-    .lbTop{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding: 10px 12px;
-      border-bottom:1px solid rgba(255,255,255,.10);
-      gap:10px;
-    }
-    .lbTitle{
-      font-weight:700;
-      font-size:14px;
-      color:var(--text);
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-    .lbBtn{
-      border:1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.06);
-      color:var(--text);
-      border-radius:999px;
-      padding: 8px 12px;
-      cursor:pointer;
+    .meta p{
+      margin: 0;
+      color: var(--muted);
       font-size: 14px;
     }
-    .lbImg{
-      width:100%;
-      max-height: 78vh;
-      object-fit: contain;
-      display:block;
-      background:#0b0f16;
-    }
-    .lbBottom{
-      padding: 10px 12px 14px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height:1.5;
-    }
-    footer{
-      max-width:1100px;
-      margin:0 auto;
-      padding: 0 18px 30px;
-      color: var(--muted);
+    .tag{
+      display:inline-flex;
+      margin-top: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(184,148,59,.45);
+      background: rgba(184,148,59,.10);
+      color: var(--text);
       font-size: 12px;
+      font-weight: 650;
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <h1>Rockhound Gallery</h1>
-    <p class="sub">A curated collection of finds — click any photo to view full size.</p>
-  </header>
-
-  <div class="toolbar" id="toolbar" aria-label="Filter gallery"></div>
-
-  <main class="grid" id="grid" aria-live="polite"></main>
-
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
-    <div class="lbInner">
-      <div class="lbTop">
-        <div class="lbTitle" id="lbTitle">Preview</div>
-        <button class="lbBtn" id="lbClose" type="button">Close</button>
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="brand">Rebecca McDonnell</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html" class="active">Gallery</a>
+        <a href="blog.html">Blog</a>
+        <a href="links.html">Links</a>
       </div>
-      <img class="lbImg" id="lbImg" alt="" />
-      <div class="lbBottom" id="lbCaption"></div>
     </div>
   </div>
 
-  <footer>
-    Tip: Put your photos in an <code>images/</code> folder and update the <code>src</code> paths in the data below.
-  </footer>
+  <div class="container">
+    <div class="hero">
+      <div class="kicker">a little collection of finds</div>
+      <h1>Gallery</h1>
+      <p class="lead">Tap a category to filter. Swap the sample photos with yours anytime.</p>
+
+      <div class="filters" id="filters">
+        <div class="chip active" data-filter="all">All</div>
+        <div class="chip" data-filter="calcite">Calcite</div>
+        <div class="chip" data-filter="jasper">Jasper</div>
+        <div class="chip" data-filter="quartz">Quartz</div>
+        <div class="chip" data-filter="fossil">Fossils</div>
+        <div class="chip" data-filter="scenery">Scenery</div>
+      </div>
+    </div>
+
+    <div class="grid" id="grid">
+      <!-- SAMPLE CARDS — replace image paths + text -->
+      <div class="card" data-tags="jasper">
+        <img class="thumb" src="images/jasper1.jpg" alt="Jasper">
+        <div class="meta">
+          <h3>Jasper</h3>
+          <p>Muted reds and earthy patterns — one of my favourites.</p>
+          <span class="tag">Jasper</span>
+        </div>
+      </div>
+
+      <div class="card" data-tags="calcite">
+        <img class="thumb" src="images/calcite1.jpg" alt="Calcite">
+        <div class="meta">
+          <h3>Calcite</h3>
+          <p>Soft shine, creamy tones, and little crystal moments.</p>
+          <span class="tag">Calcite</span>
+        </div>
+      </div>
+
+      <div class="card" data-tags="scenery">
+        <img class="thumb" src="images/scenery1.jpg" alt="Beach day">
+        <div class="meta">
+          <h3>Beach day</h3>
+          <p>Clear water, calm air, pockets full of rocks.</p>
+          <span class="tag">Scenery</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      © <span id="y"></span> Rebecca McDonnell
+    </div>
+  </div>
 
   <script>
-    // 1) EDIT THIS DATA (add/remove items)
-    // Tags drive the filter buttons. Use consistent tags.
-    const items = [
-      {
-        title: "Jasper with iron inclusions",
-        tags: ["Jasper"],
-        location: "Great Lakes shoreline",
-        notes: "Brown jasper base with black iron-oxide patches. High contrast; great display piece.",
-        image: "images/jasper-iron-01.jpg",
-        alt: "Brown jasper pebble with dark inclusions"
-      },
-      {
-        title: "Calcite crystal cluster in limestone",
-        tags: ["Calcite"],
-        location: "Beach find / limestone rubble",
-        notes: "Rhombohedral calcite crystals (white to honey). Not quartz.",
-        image: "images/calcite-cluster-01.jpg",
-        alt: "Calcite crystals in rock matrix"
-      },
-      {
-        title: "Milky quartz (tumble-ready)",
-        tags: ["Quartz"],
-        location: "Glacial pebble beach",
-        notes: "Milky quartz with light iron staining; polishes nicely.",
-        image: "images/milky-quartz-01.jpg",
-        alt: "Milky quartz pebble"
-      },
-      {
-        title: "Granite / granitic gneiss",
-        tags: ["Granite"],
-        location: "Glacial erratic",
-        notes: "Quartz + feldspar + biotite flecks. Classic Canadian Shield material.",
-        image: "images/granite-01.jpg",
-        alt: "Granite pebble with dark minerals"
-      },
-      {
-        title: "Quartzite (metamorphosed sandstone)",
-        tags: ["Quartzite"],
-        location: "Shoreline cobble",
-        notes: "Wavy foliation and hard, sugary texture. Tough and durable.",
-        image: "images/quartzite-01.jpg",
-        alt: "Grey quartzite stone with layered texture"
-      },
-      {
-        title: "Winter shoreline mood shot",
-        tags: ["Scenery"],
-        location: "Lake shoreline",
-        notes: "Ice + driftwood + winter light.",
-        image: "images/scenery-winter-01.jpg",
-        alt: "Winter shoreline with ice and driftwood"
-      }
-    ];
+    document.getElementById('y').textContent = new Date().getFullYear();
 
-    // 2) Build filters from tags
-    const allTags = ["All", ...Array.from(new Set(items.flatMap(i => i.tags))).sort()];
-    let activeTag = "All";
+    const chips = document.querySelectorAll('.chip');
+    const cards = document.querySelectorAll('.card');
 
-    const toolbar = document.getElementById("toolbar");
-    const grid = document.getElementById("grid");
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
 
-    function renderToolbar(){
-      toolbar.innerHTML = "";
-      allTags.forEach(tag => {
-        const btn = document.createElement("button");
-        btn.className = "pill";
-        btn.type = "button";
-        btn.textContent = tag;
-        btn.setAttribute("aria-pressed", String(tag === activeTag));
-        btn.addEventListener("click", () => {
-          activeTag = tag;
-          renderToolbar();
-          renderGrid();
+        const f = chip.dataset.filter;
+        cards.forEach(card => {
+          const tags = (card.dataset.tags || '').split(',').map(t => t.trim());
+          const show = (f === 'all') || tags.includes(f);
+          card.style.display = show ? '' : 'none';
         });
-        toolbar.appendChild(btn);
       });
-    }
-
-    function cardTemplate(item){
-      const tagChips = item.tags.map(t => `<span class="tag">${t}</span>`).join("");
-      const meta = [item.location].filter(Boolean).join(" • ");
-
-      return `
-        <article class="card">
-          <div class="thumb">
-            <img
-              src="${item.image}"
-              alt="${item.alt || item.title}"
-              loading="lazy"
-              data-title="${escapeHtml(item.title)}"
-              data-notes="${escapeHtml(item.notes || "")}"
-              data-location="${escapeHtml(item.location || "")}"
-            />
-            <div class="tagRow">${tagChips}</div>
-          </div>
-          <div class="content">
-            <div class="title">${escapeHtml(item.title)}</div>
-            <div class="meta">${escapeHtml(meta)}</div>
-            ${item.notes ? `<div class="notes">${escapeHtml(item.notes)}</div>` : ""}
-          </div>
-        </article>
-      `;
-    }
-
-    function renderGrid(){
-      const filtered = activeTag === "All"
-        ? items
-        : items.filter(i => i.tags.includes(activeTag));
-
-      grid.innerHTML = filtered.map(cardTemplate).join("");
-
-      // Lightbox click handlers
-      grid.querySelectorAll("img").forEach(img => {
-        img.addEventListener("click", () => openLightbox(img));
-      });
-    }
-
-    // 3) Lightbox
-    const lightbox = document.getElementById("lightbox");
-    const lbImg = document.getElementById("lbImg");
-    const lbTitle = document.getElementById("lbTitle");
-    const lbCaption = document.getElementById("lbCaption");
-    const lbClose = document.getElementById("lbClose");
-
-    function openLightbox(imgEl){
-      const title = imgEl.dataset.title || "Preview";
-      const notes = imgEl.dataset.notes || "";
-      const location = imgEl.dataset.location || "";
-
-      lbTitle.textContent = title;
-      lbImg.src = imgEl.src;
-      lbImg.alt = imgEl.alt || title;
-
-      const captionParts = [];
-      if (location) captionParts.push(location);
-      if (notes) captionParts.push(notes);
-      lbCaption.textContent = captionParts.join(" — ");
-
-      lightbox.setAttribute("aria-hidden", "false");
-    }
-
-    function closeLightbox(){
-      lightbox.setAttribute("aria-hidden", "true");
-      lbImg.src = "";
-      lbImg.alt = "";
-    }
-
-    lbClose.addEventListener("click", closeLightbox);
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) closeLightbox();
     });
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeLightbox();
-    });
-
-    function escapeHtml(str){
-      return String(str)
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
-    }
-
-    // Init
-    renderToolbar();
-    renderGrid();
   </script>
 </body>
 </html>
