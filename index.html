@@ -5,80 +5,86 @@
 <title>Rebecca McDonnell</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400&family=Great+Vibes&display=swap" rel="stylesheet">
+
 <style>
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(180deg, #123d2b, #0f2b1f);
-    color: #f7efe6;
+    background: #f7f8f6;
+    color: #2c2c2c;
+    font-family: 'Montserrat', sans-serif;
 }
 
 header {
     text-align: center;
-    padding: 30px 15px;
+    padding: 50px 20px 30px;
 }
 
-h1 {
-    font-family: 'Georgia', serif;
-    font-size: 2.6rem;
-    color: #e7c77c;
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin: 0;
     letter-spacing: 1px;
 }
 
+header span {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.6rem;
+    color: #a5b9a4;
+}
+
+nav {
+    margin-top: 25px;
+}
+
 nav a {
-    margin: 0 10px;
-    color: #9fd3b2;
+    margin: 0 14px;
     text-decoration: none;
-    font-weight: 600;
+    color: #6f7f6d;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
 }
 
 nav a:hover {
-    color: #f3a6c9;
+    color: #d9a3b8;
 }
 
 .container {
-    max-width: 900px;
+    max-width: 800px;
     margin: auto;
-    padding: 20px;
+    padding: 50px 25px;
+    text-align: center;
 }
 
-.card {
-    background: rgba(255,255,255,0.07);
-    border-left: 6px solid #9fd3b2;
-    border-radius: 18px;
-    padding: 22px;
-    margin: 25px 0;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+.intro {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
 }
 
-.card p {
-    font-size: 1.1rem;
-    line-height: 1.7;
+.signature {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2rem;
+    color: #d9a3b8;
+    margin-top: 40px;
 }
 
-.note {
-    color: #f3a6c9;
-    font-style: italic;
-}
-
-.highlight {
-    color: #e7c77c;
-    font-weight: bold;
-}
-
-button {
-    background: linear-gradient(45deg, #e7c77c, #f3a6c9);
-    border: none;
-    padding: 12px 22px;
+.button {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 10px 28px;
+    border: 1px solid #c8d6c8;
     border-radius: 30px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 10px;
+    text-decoration: none;
+    color: #6f7f6d;
+    letter-spacing: 1px;
+    transition: 0.3s;
 }
 
-button:hover {
-    transform: scale(1.05);
+.button:hover {
+    background: #c8d6c8;
+    color: white;
 }
 </style>
 </head>
@@ -87,6 +93,8 @@ button:hover {
 
 <header>
     <h1>Rebecca McDonnell</h1>
+    <span>simple things, beautiful finds</span>
+
     <nav>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -98,29 +106,15 @@ button:hover {
 
 <div class="container">
 
-<div class="card">
-<p>
-Welcome to my little corner of the internet where I share
-<span class="highlight">rock finds, creativity, cats, and everyday joy.</span>
-</p>
-
-<p class="note">
-Some days it’s fossils. Some days it’s glittery stones.  
-Some days it’s just things that made me smile.
-</p>
+<div class="intro">
+Welcome to my personal space where I share creativity, rock collecting,
+quiet moments, and the little things that make life beautiful.
 </div>
 
-<div class="card">
-<p>
-Interested in a piece you see or want to follow along with my finds?
-</p>
+<a class="button" href="gallery.html">View Gallery</a>
 
-<p>
-Visit the <span class="highlight">Gallery</span> or connect with me on  
-<a href="https://instagram.com/rock.girl.cat.mom" target="_blank" style="color:#f3a6c9;">Instagram</a>.
-</p>
-
-<button onclick="location.href='gallery.html'">Explore the Gallery</button>
+<div class="signature">
+Rebecca
 </div>
 
 </div>
