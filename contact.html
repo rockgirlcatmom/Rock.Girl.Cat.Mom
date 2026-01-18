@@ -3,223 +3,78 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us • Rebecca McDonnell</title>
+  <title>Contact • Rebecca McDonnell</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&family=Great+Vibes&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg1:#061711;
-      --bg2:#0b2a1f;
-      --panel: rgba(255,255,255,.045);
-      --panel2: rgba(255,255,255,.03);
-
-      --text:#f6f3ee;
-      --muted: rgba(246,243,238,.72);
-
-      --pink:#f2b6c6;
-      --gold:#d8b15a;
-
-      --shadow: 0 22px 60px rgba(0,0,0,.55);
-      --radius: 22px;
-    }
-
-    *{ box-sizing:border-box; }
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(1000px 700px at 18% 12%, rgba(242,182,198,.13), transparent 60%),
-        radial-gradient(900px 650px at 85% 25%, rgba(216,177,90,.12), transparent 55%),
-        linear-gradient(135deg, var(--bg2) 0%, var(--bg1) 55%, #04110d 100%);
-      letter-spacing:.25px;
-      overflow-x:hidden;
-      min-height: 100vh;
-      display:flex;
-      flex-direction:column;
-    }
-
-    header{
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(6,23,17,.78), rgba(6,23,17,.35));
-      border-bottom: 1px solid rgba(216,177,90,.18);
-    }
-    .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      max-width:1100px;
-      margin:0 auto;
-      padding: 12px 18px;
-    }
-    .brand{
-      display:flex;
-      flex-direction:column;
-      line-height:1.05;
-    }
-    .brand .name{
-      font-weight:200;
-      letter-spacing:6px;
-      text-transform:uppercase;
-      font-size:14px;
-      white-space:nowrap;
-    }
-    .brand .accent{
-      font-family:"Great Vibes", cursive;
-      color: var(--gold);
-      font-size:26px;
-      margin-top:2px;
-    }
-    .links{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      justify-content:flex-end;
-      align-items:center;
-    }
-    .links a{
-      font-weight:300;
-      font-size:13px;
-      color: var(--muted);
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      transition: transform .15s ease, border-color .15s ease, background .15s ease, color .15s ease;
-    }
-    .links a:hover{
-      transform: translateY(-1px);
-      border-color: rgba(216,177,90,.35);
-      background: rgba(255,255,255,.03);
-      color: var(--text);
-    }
-
-    main{ max-width: 1100px; margin: 0 auto; padding: 28px 18px 64px; width:100%; flex:1; }
-
-    .card{
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, var(--panel), var(--panel2));
-      border: 1px solid rgba(216,177,90,.28);
-      box-shadow: var(--shadow);
-      padding: 34px 26px;
-    }
-
-    h1{
-      margin: 0 0 10px;
-      font-weight: 200;
-      font-size: 42px;
-      letter-spacing: 2px;
-      line-height: 1.1;
-    }
-    .script{
-      font-family:"Great Vibes", cursive;
-      color: var(--gold);
-      font-size: 42px;
-      margin: 0 0 14px;
-      line-height: 1;
-    }
-    p{
-      margin: 0;
-      color: var(--muted);
-      font-weight:300;
-      line-height: 1.7;
-      max-width: 78ch;
-    }
-
-    .row{
-      display:flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-      align-items:center;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding: 11px 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(216,177,90,.45);
-      background: rgba(216,177,90,.10);
-      color: var(--text);
-      font-weight: 300;
-      font-size: 13px;
-    }
-    .btn.secondary{
-      background: rgba(242,182,198,.08);
-      border-color: rgba(242,182,198,.40);
-    }
-
-    .note{
-      margin-top: 18px;
-      border-radius: 18px;
-      border: 1px solid rgba(242,182,198,.22);
-      background: rgba(242,182,198,.06);
-      padding: 14px;
-      color: rgba(246,243,238,.86);
-      font-weight:300;
-      line-height:1.6;
-      font-size: 13.5px;
-    }
-
-    footer{
-      padding: 0 18px 18px;
-      text-align:center;
-      color: rgba(246,243,238,.55);
-      font-size: 12px;
-      font-weight:300;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+  <div class="pattern"></div>
+
   <header>
     <div class="nav">
       <div class="brand">
         <div class="name">Rebecca McDonnell</div>
-        <div class="accent">Contact</div>
+        <div class="accent">Collected with intention</div>
       </div>
 
       <nav class="links" aria-label="Primary">
-        <a href="index.html#rocks">Rocks for Sale</a>
-        <a href="index.html#home">Home & Cats</a>
-        <a href="index.html">Home</a>
-        <a href="https://instagram.com/rock.girl.cat.mom" target="_blank" rel="noopener">Instagram</a>
+        <a href="sale.html">Rocks for Sale</a>
+        <a href="views.html">Views</a>
+        <a href="finds.html">Finds</a>
+        <a href="home-cats.html">Home & Cats</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <div class="card">
-      <div class="script">Contact Us</div>
-      <h1>Let’s connect</h1>
-      <p>
-        For rock inquiries, pricing, collaborations, or questions, reach out below.
-        (When you’re ready, replace the email address in the button.)
-      </p>
+  <main class="wrap">
+    <section class="hero">
+      <div class="card">
+        <div class="kicker"><span class="dot"></span> inquiries • purchases • hello</div>
+        <h1>Contact</h1>
+        <p class="subtitle">
+          For purchases: include the item name + price. For everything else: say hi.
+        </p>
 
-      <div class="row">
-        <a class="btn" href="mailto:hello@example.com">Email</a>
-        <a class="btn secondary" href="https://instagram.com/rock.girl.cat.mom" target="_blank" rel="noopener">DM on Instagram</a>
+        <div class="ctaRow">
+          <a class="btn" href="https://instagram.com/rock.girl.cat.mom" target="_blank" rel="noopener">DM on Instagram</a>
+          <a class="btn secondary" href="sale.html">View Rocks for Sale</a>
+        </div>
       </div>
+    </section>
 
-      <div class="note">
-        <strong style="color:#f6f3ee; font-weight:300;">Rocks for sale:</strong>
-        If you’re messaging about an item, include the item name (or screenshot) so I can confirm availability.
+    <section>
+      <div class="sectionCard">
+        <div class="sectionTitleRow">
+          <h2 class="sectionTitle">Message</h2>
+          <p class="sectionSub">This form is a visual placeholder (GitHub Pages doesn’t send emails by itself). We can add an email link or a free form service next.</p>
+        </div>
+
+        <div class="form">
+          <input class="input" type="text" placeholder="Your name" />
+          <input class="input" type="email" placeholder="Your email" />
+          <textarea placeholder="Your message"></textarea>
+          <div class="hint">For now, please DM on Instagram to purchase. (We can add a real email form next.)</div>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <footer>
+      <div class="footerCard">
+        <div style="font-family:'Great Vibes', cursive; color: var(--gold); font-size: 34px; line-height: 1;">
+          thank you for visiting
+        </div>
+        <div class="small">© <span id="y"></span> Rebecca McDonnell • Built on GitHub Pages</div>
+      </div>
+    </footer>
   </main>
 
-  <footer>© <span id="y"></span> Rebecca McDonnell • Built on GitHub Pages</footer>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
