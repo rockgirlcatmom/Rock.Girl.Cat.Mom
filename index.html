@@ -14,15 +14,16 @@
     }
 
     header {
-      padding: 24px;
+      padding: 28px 20px;
       text-align: center;
     }
 
     nav {
       display: flex;
       justify-content: center;
-      gap: 20px;
-      margin-top: 10px;
+      gap: 22px;
+      margin-top: 12px;
+      flex-wrap: wrap;
     }
 
     nav a {
@@ -38,44 +39,52 @@
     main {
       max-width: 900px;
       margin: 0 auto;
-      padding: 20px;
-      line-height: 1.6;
+      padding: 30px 20px;
+      line-height: 1.7;
+      font-size: 18px;
     }
 
-    h1 {
-      margin-bottom: 8px;
-    }
-
-    h2 {
+    .cta {
       margin-top: 40px;
+      padding: 20px;
+      background: #f3f7f5;
+      border-left: 5px solid #4a7c59;
+      border-radius: 12px;
+    }
+
+    .cta a {
       color: #4a7c59;
+      font-weight: 600;
+      text-decoration: none;
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <h1>Rebecca McDonnell</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+<header>
+  <h1>Rebecca McDonnell</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
 
-  <main>
-    <p>
-      Welcome to my personal space where I share creativity, rock collecting,
-      everyday finds, and the things that make me happy.
-    </p>
+<main>
+  <p>
+    Welcome to my personal space where I share creativity, rock collecting,
+    everyday finds, and the things that make me happy.
+  </p>
 
-    <!-- BEGIN HERE SECTION REMOVED -->
-    <!-- ITALIC TEXT REMOVED -->
-
-  </main>
+  <div class="cta">
+    Interested in a piece you see or want to follow along with my finds?<br><br>
+    Visit the <a href="gallery.html">Gallery</a> or connect with me on
+    <a href="https://instagram.com/rock.girl.cat.mom" target="_blank">Instagram</a>.
+  </div>
+</main>
 
 </body>
 </html>
